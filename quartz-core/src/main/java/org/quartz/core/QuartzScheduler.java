@@ -573,6 +573,7 @@ public class QuartzScheduler implements RemotableQuartzScheduler {
     /**
      * <p>
      * Temporarily halts the <code>QuartzScheduler</code>'s firing of <code>{@link org.quartz.Trigger}s</code>.
+     * The <code>QuartzScheduler</code> is actually paused when {@link #standby()} return true
      * </p>
      * 
      * <p>
@@ -589,12 +590,22 @@ public class QuartzScheduler implements RemotableQuartzScheduler {
 
     /**
      * <p>
-     * Reports whether the <code>Scheduler</code> is paused.
+     * Reports whether the <code>Scheduler</code> is paused mode.
      * </p>
      */
     public boolean isInStandbyMode() {
         return schedThread.isPaused();
     }
+
+    /**
+     * <p>
+     * Reports whether the <code>Scheduler</code> is actually paused.
+     * </p>
+     */
+    public boolean isStandby() {
+        return schedThread.isStandby();
+    }
+
 
     public Date runningSince() {
         if(initialStart == null)
