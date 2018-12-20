@@ -1,0 +1,352 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="quartz-init" author="nasazh">
+        <createTable tableName="qrtz_tdss_locks">
+            <column name="sched_name" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lock_name" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="sched_name, lock_name" tableName="qrtz_tdss_locks"/>
+
+        <createTable tableName="qrtz_tdss_fired_triggers">
+            <column name="sched_name" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entry_id" type="VARCHAR(95)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="instance_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fired_time" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sched_time" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="priority" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_name" type="VARCHAR(200)"/>
+            <column name="job_group" type="VARCHAR(200)"/>
+            <column name="is_nonconcurrent" type="BOOLEAN"/>
+            <column name="requests_recovery" type="BOOLEAN"/>
+        </createTable>
+        <addPrimaryKey columnNames="sched_name, entry_id" tableName="qrtz_tdss_fired_triggers"/>
+
+        <createIndex tableName="qrtz_tdss_fired_triggers" indexName="idx_qrtz_tdss_ft_inst_job_req_rcvry">
+            <column name="sched_name"/>
+            <column name="instance_name"/>
+            <column name="requests_recovery"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_fired_triggers" indexName="idx_qrtz_tdss_ft_j_g">
+            <column name="sched_name"/>
+            <column name="job_name"/>
+            <column name="job_group"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_fired_triggers" indexName="idx_qrtz_tdss_ft_jg">
+            <column name="sched_name"/>
+            <column name="job_group"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_fired_triggers" indexName="idx_qrtz_tdss_ft_t_g">
+            <column name="sched_name"/>
+            <column name="trigger_name"/>
+            <column name="trigger_group"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_fired_triggers" indexName="idx_qrtz_tdss_ft_tg">
+            <column name="sched_name"/>
+            <column name="trigger_group"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_fired_triggers" indexName="idx_qrtz_tdss_ft_trig_inst_name">
+            <column name="sched_name"/>
+            <column name="instance_name"/>
+        </createIndex>
+
+        <createTable tableName="qrtz_tdss_calendars">
+            <column name="sched_name" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="calendar_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="calendar" type="blob">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="sched_name, calendar_name" tableName="qrtz_tdss_calendars"/>
+
+        <createTable tableName="qrtz_tdss_paused_trigger_grps">
+            <column name="sched_name" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="sched_name, trigger_group" tableName="qrtz_tdss_paused_trigger_grps"/>
+
+        <createTable tableName="qrtz_tdss_scheduler_state">
+            <column name="sched_name" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="instance_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_checkin_time" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="checkin_interval" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="sched_name, instance_name" tableName="qrtz_tdss_scheduler_state"/>
+
+        <createTable tableName="qrtz_tdss_job_details">
+            <column name="sched_name" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(250)"/>
+            <column name="job_class_name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_durable" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_nonconcurrent" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_update_data" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="requests_recovery" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_data" type="blob"/>
+        </createTable>
+        <addPrimaryKey columnNames="sched_name, job_name, job_group" tableName="qrtz_tdss_job_details"/>
+
+        <createIndex tableName="qrtz_tdss_job_details" indexName="idx_qrtz_tdss_j_grp">
+            <column name="sched_name"/>
+            <column name="job_group"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_job_details" indexName="idx_qrtz_tdss_j_req_recovery">
+            <column name="sched_name"/>
+            <column name="requests_recovery"/>
+        </createIndex>
+
+        <createTable tableName="qrtz_tdss_triggers">
+            <column name="sched_name" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(250)"/>
+            <column name="next_fire_time" type="BIGINT"/>
+            <column name="prev_fire_time" type="BIGINT"/>
+            <column name="priority" type="INTEGER"/>
+            <column name="trigger_state" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_type" type="VARCHAR(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_time" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_time" type="BIGINT"/>
+            <column name="calendar_name" type="VARCHAR(200)"/>
+            <column name="misfire_instr" type="SMALLINT"/>
+            <column name="job_data" type="blob"/>
+        </createTable>
+        <addPrimaryKey columnNames="sched_name, trigger_name, trigger_group" tableName="qrtz_tdss_triggers"/>
+
+        <createIndex tableName="qrtz_tdss_triggers" indexName="idx_qrtz_tdss_t_c">
+            <column name="sched_name"/>
+            <column name="calendar_name"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_triggers" indexName="idx_qrtz_tdss_t_g">
+            <column name="sched_name"/>
+            <column name="trigger_group"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_triggers" indexName="idx_qrtz_tdss_t_jg">
+            <column name="sched_name"/>
+            <column name="job_group"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_triggers" indexName="idx_qrtz_tdss_t_n_g_state">
+            <column name="sched_name"/>
+            <column name="trigger_group"/>
+            <column name="trigger_state"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_triggers" indexName="idx_qrtz_tdss_t_n_state">
+            <column name="sched_name"/>
+            <column name="trigger_name"/>
+            <column name="trigger_group"/>
+            <column name="trigger_state"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_triggers" indexName="idx_qrtz_tdss_t_next_fire_time">
+            <column name="sched_name"/>
+            <column name="next_fire_time"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_triggers" indexName="idx_qrtz_tdss_t_nft_misfire">
+            <column name="sched_name"/>
+            <column name="misfire_instr"/>
+            <column name="next_fire_time"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_triggers" indexName="idx_qrtz_tdss_t_nft_st">
+            <column name="sched_name"/>
+            <column name="trigger_state"/>
+            <column name="next_fire_time"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_triggers" indexName="idx_qrtz_tdss_t_nft_st_misfire">
+            <column name="sched_name"/>
+            <column name="misfire_instr"/>
+            <column name="next_fire_time"/>
+            <column name="trigger_state"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_triggers" indexName="idx_qrtz_tdss_t_nft_st_misfire_grp">
+            <column name="sched_name"/>
+            <column name="misfire_instr"/>
+            <column name="next_fire_time"/>
+            <column name="trigger_group"/>
+            <column name="trigger_state"/>
+        </createIndex>
+
+        <createIndex tableName="qrtz_tdss_triggers" indexName="idx_qrtz_tdss_t_state">
+            <column name="sched_name"/>
+            <column name="trigger_state"/>
+        </createIndex>
+
+        <createTable tableName="qrtz_tdss_blob_triggers">
+            <column name="sched_name" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="blob_data" type="blob"/>
+        </createTable>
+        <addPrimaryKey columnNames="sched_name, trigger_name, trigger_group" tableName="qrtz_tdss_blob_triggers"/>
+
+        <createTable tableName="qrtz_tdss_simprop_triggers">
+            <column name="sched_name" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="str_prop_1" type="VARCHAR(512)"/>
+            <column name="str_prop_2" type="VARCHAR(512)"/>
+            <column name="str_prop_3" type="VARCHAR(512)"/>
+            <column name="int_prop_1" type="INTEGER"/>
+            <column name="int_prop_2" type="INTEGER"/>
+            <column name="long_prop_1" type="BIGINT"/>
+            <column name="long_prop_2" type="BIGINT"/>
+            <column name="dec_prop_1" type="NUMERIC(13,4)"/>
+            <column name="dec_prop_2" type="NUMERIC(13,4)"/>
+            <column name="bool_prop_1" type="BOOLEAN"/>
+            <column name="bool_prop_2" type="BOOLEAN"/>
+        </createTable>
+        <addPrimaryKey columnNames="sched_name, trigger_name, trigger_group" tableName="qrtz_tdss_simprop_triggers"/>
+
+        <createTable tableName="qrtz_tdss_cron_triggers">
+            <column name="sched_name" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cron_expression" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time_zone_id" type="VARCHAR(80)"/>
+        </createTable>
+        <addPrimaryKey columnNames="sched_name, trigger_name, trigger_group" tableName="qrtz_tdss_cron_triggers"/>
+
+        <createTable tableName="qrtz_tdss_simple_triggers">
+            <column name="sched_name" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="repeat_count" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="repeat_interval" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="times_triggered" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="sched_name, trigger_name, trigger_group" tableName="qrtz_tdss_simple_triggers"/>
+
+        <addForeignKeyConstraint baseTableName="qrtz_tdss_triggers" constraintName="qrtz_tdss_triggers_sched_name_fkey" baseColumnNames="sched_name, job_name, job_group" referencedTableName="qrtz_tdss_job_details" referencedColumnNames="sched_name, job_name, job_group"/>
+
+        <addForeignKeyConstraint baseTableName="qrtz_tdss_simple_triggers" constraintName="qrtz_tdss_simple_triggers_sched_name_fkey" baseColumnNames="sched_name, trigger_name, trigger_group" referencedTableName="qrtz_tdss_triggers" referencedColumnNames="sched_name, trigger_name, trigger_group"/>
+
+        <addForeignKeyConstraint baseTableName="qrtz_tdss_cron_triggers" constraintName="qrtz_tdss_cron_triggers_sched_name_fkey" baseColumnNames="sched_name, trigger_name, trigger_group" referencedTableName="qrtz_tdss_triggers" referencedColumnNames="sched_name, trigger_name, trigger_group"/>
+
+        <addForeignKeyConstraint baseTableName="qrtz_tdss_simprop_triggers" constraintName="qrtz_tdss_simprop_triggers_sched_name_fkey" baseColumnNames="sched_name, trigger_name, trigger_group" referencedTableName="qrtz_tdss_triggers" referencedColumnNames="sched_name, trigger_name, trigger_group"/>
+
+        <addForeignKeyConstraint baseTableName="qrtz_tdss_blob_triggers" constraintName="qrtz_tdss_blob_triggers_sched_name_fkey" baseColumnNames="sched_name, trigger_name, trigger_group" referencedTableName="qrtz_tdss_triggers" referencedColumnNames="sched_name, trigger_name, trigger_group"/>
+    </changeSet>
+</databaseChangeLog>
