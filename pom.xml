@@ -74,9 +74,9 @@
     <hikaricp.version>2.3.13</hikaricp.version>
     <log4j.version>1.2.16</log4j.version>
     <gmaven-plugin.version>1.4</gmaven-plugin.version>
-    <checkstyle-suppressions-file>${user.home}/checkstyle/src/main/resources/suppressions.xml</checkstyle-suppressions-file>
-    <checkstyle-config-file>${user.home}/checkstyle/src/main/resources/checkstyle.xml</checkstyle-config-file>
-    <checkstyle-header-file>${user.home}/checkstyle/src/main/resources/header.txt</checkstyle-header-file>
+    <checkstyle-suppressions-file>${user.dir}/checkstyle/src/main/resources/suppressions.xml</checkstyle-suppressions-file>
+    <checkstyle-config-file>${user.dir}/checkstyle/src/main/resources/checkstyle.xml</checkstyle-config-file>
+    <checkstyle-header-file>${user.dir}/checkstyle/src/main/resources/header.txt</checkstyle-header-file>
 
     <terracotta-snapshots-url>http://nexus.terracotta.eur.ad.sag/content/repositories/terracotta-snapshots</terracotta-snapshots-url>
     <terracotta-staging-url>http://nexus.terracotta.eur.ad.sag/content/repositories/terracotta-staging</terracotta-staging-url>
