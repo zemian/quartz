@@ -7,14 +7,13 @@
 
 ### To compile:
 ```
-  %> ./mvnw install -DskipTests
+$ ./mvnw compile
+```
+
+### To build Quartz distribution kit:
+
+```
+$ ./mvnw package
 ```
 
 Note:  the final Quartz jar is found under quartz/target 
-
-### To build Quartz distribution kit:
-```
-  %> cd distribution
-  %> ./mvnw package
-```
-
