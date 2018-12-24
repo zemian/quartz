@@ -56,7 +56,6 @@
     <module>quartz-weblogic</module>    
     <module>quartz-jobs</module> 
     <module>quartz-plugins</module>
-    <module>terracotta</module>
     <module>quartz</module>
   </modules>
 
