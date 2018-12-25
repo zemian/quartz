@@ -73,15 +73,6 @@
           <name>!skipJavadoc</name>
         </property>
       </activation>
-      <dependencies>
-        <dependency>
-          <groupId>org.quartz-scheduler</groupId>
-          <artifactId>quartz</artifactId>
-          <version>${project.version}</version>
-          <classifier>javadoc</classifier>
-          <scope>provided</scope>
-        </dependency> 
-      </dependencies>
     </profile>
   </profiles>
   
@@ -147,17 +138,6 @@
                 <groupId>org.quartz-scheduler</groupId>
                 <artifactId>quartz</artifactId>
                 <classifier>sources</classifier>
-              </dependency>
-              <unpack>true</unpack>
-            </resource>
-            <!-- javadoc -->
-            <resource>
-              <failIfNotFound>false</failIfNotFound>
-              <targetPath>${root.dir}/javadoc</targetPath>
-              <dependency>
-                <groupId>org.quartz-scheduler</groupId>
-                <artifactId>quartz</artifactId>
-                <classifier>javadoc</classifier>
               </dependency>
               <unpack>true</unpack>
             </resource>
