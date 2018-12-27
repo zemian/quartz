@@ -13,7 +13,7 @@
   <name>quartz-core</name>
 
   <properties>
-	<derby-version>10.8.2.2</derby-version>
+	 <derby-version>10.8.2.2</derby-version>
   </properties>
 
   <dependencies>
@@ -26,7 +26,7 @@
 
     <dependency>
       <groupId>com.zaxxer</groupId>
-      <artifactId>HikariCP-java6</artifactId>
+      <artifactId>HikariCP</artifactId>
       <version>${hikaricp.version}</version>
     </dependency>
 

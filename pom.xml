@@ -73,7 +73,7 @@
     
     <slf4j.version>1.7.7</slf4j.version>
     <c3p0.version>0.9.5.2</c3p0.version>
-    <hikaricp.version>2.3.13</hikaricp.version>
+    <hikaricp.version>3.2.0</hikaricp.version>
     <log4j.version>1.2.16</log4j.version>
     <gmaven-plugin.version>1.4</gmaven-plugin.version>
     <checkstyle-suppressions-file>${user.dir}/checkstyle/src/main/resources/suppressions.xml</checkstyle-suppressions-file>
