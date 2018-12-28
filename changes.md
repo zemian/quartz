@@ -1,6 +1,7 @@
 ## quartz-2.4.x
 
 * #161: Upgrade to use JDK8
+* #304: Upgrade HikariCP 3.2.0 to jdk8 compatible
 
 ## quartz-2.3.x
 
