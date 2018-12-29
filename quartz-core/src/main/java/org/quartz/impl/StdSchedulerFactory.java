@@ -46,6 +46,7 @@ import org.quartz.spi.ThreadPool;
 import org.quartz.utils.ConnectionProvider;
 import org.quartz.utils.DBConnectionManager;
 import org.quartz.utils.JNDIConnectionProvider;
+import org.quartz.utils.C3p0PoolingConnectionProvider;
 import org.quartz.utils.PoolingConnectionProvider;
 import org.quartz.utils.PropertiesParser;
 import org.slf4j.Logger;
@@ -63,7 +64,6 @@ import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.security.AccessControlException;
-import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Locale;
 import java.util.Properties;
@@ -1401,7 +1401,15 @@ public class StdSchedulerFactory implements SchedulerFactory {
         copyProps.remove(PoolingConnectionProvider.DB_PASSWORD);
         copyProps.remove(PoolingConnectionProvider.DB_MAX_CONNECTIONS);
         copyProps.remove(PoolingConnectionProvider.DB_VALIDATION_QUERY);
-        props.remove(PoolingConnectionProvider.POOLING_PROVIDER);
+        copyProps.remove(PoolingConnectionProvider.POOLING_PROVIDER);
+
+        if (cp instanceof C3p0PoolingConnectionProvider) {
+            copyProps.remove(C3p0PoolingConnectionProvider.DB_MAX_CACHED_STATEMENTS_PER_CONNECTION);
+            copyProps.remove(C3p0PoolingConnectionProvider.DB_VALIDATE_ON_CHECKOUT);
+            copyProps.remove(C3p0PoolingConnectionProvider.DB_IDLE_VALIDATION_SECONDS);
+            copyProps.remove(C3p0PoolingConnectionProvider.DB_DISCARD_IDLE_CONNECTIONS_SECONDS);
+        }
+
         setBeanProps(cp.getDataSource(), copyProps);
     }
 
