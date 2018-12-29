@@ -9,6 +9,8 @@
 * #302: Update mvnw wrapper to use Maven 3.6.0
 * #226: Replace maven-forge-plugin with maven-jar-plugin
 * #294: Update hikaricp-java6:2.3.13 to hikaricp-java7:2.4.13
+* #281: Fix no setter for dataSource property validateOnCheckout
+* #264: Fix no setter for dataSource property discardIdleConnectionsSeconds
 
 ## quartz-2.3.0
 
