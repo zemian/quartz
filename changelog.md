@@ -11,6 +11,7 @@
 * #294 Update hikaricp-java6:2.3.13 to hikaricp-java7:2.4.13
 * #281 Fix no setter for dataSource property validateOnCheckout
 * #264 Fix no setter for dataSource property discardIdleConnectionsSeconds
+* #293 Setup Azure CI server for Quartz project
 
 ## quartz-2.3.0
 
