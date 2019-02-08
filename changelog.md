@@ -12,6 +12,7 @@
 * #281 Fix no setter for dataSource property validateOnCheckout
 * #264 Fix no setter for dataSource property discardIdleConnectionsSeconds
 * #293 Setup Azure CI server for Quartz project
+* #212 QuartzInitializerListener: fix a typo
 
 ## quartz-2.3.0
 
