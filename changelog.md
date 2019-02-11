@@ -18,6 +18,7 @@
 * #264 Fix no setter for dataSource property discardIdleConnectionsSeconds
 * #293 Setup Azure CI server for Quartz project
 * #212 QuartzInitializerListener: fix a typo
+* #245 Sybase: Changed varchar length TRIGGER_NAME from 80 to 200
 
 ## quartz-2.3.0
 
