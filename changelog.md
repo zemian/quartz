@@ -19,6 +19,8 @@
 * #293 Setup Azure CI server for Quartz project
 * #212 QuartzInitializerListener: fix a typo
 * #245 Sybase: Changed varchar length TRIGGER_NAME from 80 to 200
+* #170 Minor fix and improvement on Javadoc
+* #203 Minor fix and improvement on Javadoc
 
 ## quartz-2.3.0
 
