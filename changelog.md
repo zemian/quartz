@@ -1,4 +1,4 @@
-## quartz-2.4.x
+## master (quartz-2.4.x)
 
 * #161 Upgrade to use JDK8
 * #304 Upgrade HikariCP 3.2.0 to jdk8 compatible
@@ -16,6 +16,8 @@
 * #294 Update hikaricp-java6:2.3.13 to hikaricp-java7:2.4.13
 * #281 Fix no setter for dataSource property validateOnCheckout
 * #264 Fix no setter for dataSource property discardIdleConnectionsSeconds
+* #293 Setup Azure CI server for Quartz project
+* #212 QuartzInitializerListener: fix a typo
 
 ## quartz-2.3.0
 

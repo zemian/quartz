@@ -1,4 +1,3 @@
-#
 # Copyright Terracotta, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,16 +11,26 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-# See shared code location for steps and parameters:
-# https://dev.azure.com/TerracottaCI/_git/terracotta
+# Maven
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
-resources:
-  repositories:
-    - repository: templates
-      type: git   
-      name: terracotta/terracotta
+pool:
+  vmImage: 'Ubuntu 16.04'
 
-jobs:
-- template: build-templates/maven-common.yml@templates  
+steps:
+- bash: |
+   curl -s https://raw.githubusercontent.com/Terracotta-OSS/cloud-tools/master/azure/init.sh?junk=$(date +%s) | bash      
+  displayName: 'Bash Script'
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m -Dmaven.wagon.http.pool=false'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    goals: 'verify'
