@@ -198,6 +198,7 @@ public class JobBuilder {
      * 
      * <p>
      * If not explicitly set, the default value is <code>false</code>.
+     * - this method sets the value to <code>true</code>.
      * </p>
      * 
      * @return the updated JobBuilder
