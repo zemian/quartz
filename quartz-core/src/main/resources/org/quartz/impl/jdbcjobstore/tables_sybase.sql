@@ -114,7 +114,7 @@ go
 
 create table QRTZ_CRON_TRIGGERS (
 SCHED_NAME varchar(120) not null,
-TRIGGER_NAME varchar(80) not null,
+TRIGGER_NAME varchar(200) not null,
 TRIGGER_GROUP varchar(80) not null,
 CRON_EXPRESSION varchar(120) not null,
 TIME_ZONE_ID varchar(80) null,
@@ -130,7 +130,7 @@ go
 create table QRTZ_FIRED_TRIGGERS(
 SCHED_NAME varchar(120) not null,
 ENTRY_ID varchar(95) not null,
-TRIGGER_NAME varchar(80) not null,
+TRIGGER_NAME varchar(200) not null,
 TRIGGER_GROUP varchar(80) not null,
 INSTANCE_NAME varchar(80) not null,
 FIRED_TIME numeric(13,0) not null,
@@ -175,7 +175,7 @@ go
 
 create table QRTZ_SIMPLE_TRIGGERS (
 SCHED_NAME varchar(120) not null,
-TRIGGER_NAME varchar(80) not null,
+TRIGGER_NAME varchar(200) not null,
 TRIGGER_GROUP varchar(80) not null,
 REPEAT_COUNT numeric(13,0) not null,
 REPEAT_INTERVAL numeric(13,0) not null,
@@ -204,7 +204,7 @@ go
 
 create table QRTZ_BLOB_TRIGGERS (
 SCHED_NAME varchar(120) not null,
-TRIGGER_NAME varchar(80) not null,
+TRIGGER_NAME varchar(200) not null,
 TRIGGER_GROUP varchar(80) not null,
 BLOB_DATA image null
 )
@@ -212,7 +212,7 @@ go
 
 create table QRTZ_TRIGGERS (
 SCHED_NAME varchar(120) not null,
-TRIGGER_NAME varchar(80) not null,
+TRIGGER_NAME varchar(200) not null,
 TRIGGER_GROUP varchar(80) not null,
 JOB_NAME varchar(80) not null,
 JOB_GROUP varchar(80) not null,
