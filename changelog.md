@@ -29,6 +29,7 @@
 * #76 Add missing foreign key for BLOB triggers table for ms sql server
 * #114 Add 'if exists' clause to drop tables command for postgres
 * #126 Add support for hikari cp, upgrade c3p0 library, break static dependencies
+* #214 Reuse JobBuilder.storeDurably(boolean) in JobBuilder
 
 ## Previous Releases
 
