@@ -23,6 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -40,7 +41,9 @@ public class QuartzDatabaseTestSupport extends QuartzMemoryTestSupport {
     @BeforeClass
     public static void initialize() throws Exception {
         LOG.info("Starting DERBY database.");
-        derbyServer = new NetworkServerControl();
+        InetAddress localhost = InetAddress.getByName("localhost");
+        int portNum = Integer.parseInt(JdbcQuartzDerbyUtilities.DATABASE_PORT);
+        derbyServer = new NetworkServerControl(localhost, portNum);
         derbyServer.start(new PrintWriter(System.out));
         int tries = 0;
         while (tries < 5) {
@@ -55,7 +58,7 @@ public class QuartzDatabaseTestSupport extends QuartzMemoryTestSupport {
         if (tries == 5) {
             throw new Exception("Failed to start Derby!");
         }
-        LOG.info("Database started.");
+        LOG.info("Database started");
         try {
             LOG.info("Creating Database tables for Quartz.");
             JdbcQuartzDerbyUtilities.createDatabase();
