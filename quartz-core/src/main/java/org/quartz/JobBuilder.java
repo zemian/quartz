@@ -239,8 +239,7 @@ public class JobBuilder {
      * @see JobDetail#isDurable()
      */
     public JobBuilder storeDurably() {
-        this.durability = true;
-        return this;
+        return storeDurably(true);
     }
     
     /**
