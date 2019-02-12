@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build - Windows Only') {
             steps {
-                bat 'mvn -V -Dmaven.test.failure.ignore clean package'
+                bat 'mvn -V -Dmaven.test.failure.ignore -Dtest.databasePort=1528 clean package'
             }
             post {
                 success {

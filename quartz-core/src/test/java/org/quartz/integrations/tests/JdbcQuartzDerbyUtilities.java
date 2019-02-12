@@ -64,7 +64,8 @@ public final class JdbcQuartzDerbyUtilities {
         }
         DERBY_DIRECTORY = derbyDirectory;
 
-        DATABASE_CONNECTION_PREFIX = "jdbc:derby://localhost:1527/"
+        String testDBPort = System.getProperty("test.databasePort", "1527");
+        DATABASE_CONNECTION_PREFIX = "jdbc:derby://localhost:" + testDBPort + "/"
                 + DERBY_DIRECTORY + ";create=true";
 
     	PROPS.setProperty("user","quartz");
