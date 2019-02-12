@@ -21,6 +21,7 @@
 * #245 Sybase: Changed varchar length TRIGGER_NAME from 80 to 200
 * #170 Minor fix and improvement on Javadoc
 * #203 Minor fix and improvement on Javadoc
+* #146 Release BLOCKED triggers in releaseAcquiredTrigger
 
 ## quartz-2.3.0
 
