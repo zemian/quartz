@@ -43,8 +43,9 @@ public final class JdbcQuartzDerbyUtilities {
             .getLogger(JdbcQuartzDerbyUtilities.class);
 
     private static final String DATABASE_DRIVER_CLASS = "org.apache.derby.jdbc.ClientDriver";
-    public static final String DATABASE_CONNECTION_PREFIX ;
-    
+    public static final String DATABASE_PORT = System.getProperty("test.databasePort", "1527");;
+    public static final String DATABASE_CONNECTION_PREFIX;
+
     private static final List<String> DATABASE_SETUP_STATEMENTS;
     private static final List<String> DATABASE_TEARDOWN_STATEMENTS;
     private static final String DERBY_DIRECTORY;
@@ -64,8 +65,7 @@ public final class JdbcQuartzDerbyUtilities {
         }
         DERBY_DIRECTORY = derbyDirectory;
 
-        String testDBPort = System.getProperty("test.databasePort", "1527");
-        DATABASE_CONNECTION_PREFIX = "jdbc:derby://localhost:" + testDBPort + "/"
+        DATABASE_CONNECTION_PREFIX = "jdbc:derby://localhost:" + DATABASE_PORT + "/"
                 + DERBY_DIRECTORY + ";create=true";
 
     	PROPS.setProperty("user","quartz");
