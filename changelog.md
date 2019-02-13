@@ -1,6 +1,6 @@
 ## quartz-2.3.x
 
-THIS RELEASE REQUIRES JDK8
+THIS RELEASE REQUIRES JDK7
 
 * #294 depen: Update hikaricp-java6:2.3.13 to hikaricp-java7:2.4.13
 * #147 bugfix: Fix BINARY to BLOG type for job data for hsqldb
