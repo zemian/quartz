@@ -1,12 +1,8 @@
 ## Quartz Scheduler
 
-Quartz is a richly featured, open source job scheduling library that can be integrated within virtually any Java application - from the smallest stand-alone application to the largest e-commerce system.
-
-## Builld Status
-
-Branch: `quartz-2.4.x`
-
-![quartz-2.4.x branch build status](https://travis-ci.org/quartz-scheduler/quartz.svg?branch=quartz-2.4.x "quartz-2.4.x build status")
+Quartz is a richly featured, open source job scheduling library that can be 
+integrated within virtually any Java application - from the smallest stand-alone 
+application to the largest e-commerce system.
 
 
 ## Build Instructions
@@ -37,4 +33,4 @@ export JAVA_HOME=/path/to/jdk8
 ./mvnw package -DskipTests
 ```
 
-NOTE: The final combined single jar is found under  `quartz/target/quartz-<version>.jar`
+NOTE: The final combined single jar is found under `quartz/target/quartz-<version>.jar`
