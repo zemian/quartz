@@ -17,11 +17,12 @@
 * #170 Minor fix and improvement on Javadoc
 * #203 Minor fix and improvement on Javadoc
 * #146 Release BLOCKED triggers in releaseAcquiredTrigger
+* #214 Reuse JobBuilder.storeDurably(boolean) in JobBuilder
 
 ## quartz-2.3.0
 
 * Released on 19-Apr-2017
-* Require minium JDK7
+* Require minimum JDK7
 * #6 Fix cannot create tables in MySQL with InnoDB and UTF8mb4
 * #9 Fix the Java 8 javadoc issue with 'doclint:none'
 * #25 Add resetTriggerFromErrorState functionality
@@ -29,7 +30,6 @@
 * #76 Add missing foreign key for BLOB triggers table for ms sql server
 * #114 Add 'if exists' clause to drop tables command for postgres
 * #126 Add support for hikari cp, upgrade c3p0 library, break static dependencies
-* #214 Reuse JobBuilder.storeDurably(boolean) in JobBuilder
 
 ## Previous Releases
 
