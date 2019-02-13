@@ -1,7 +1,10 @@
 ## master (quartz-2.4.x)
 
-* #161 Upgrade to use JDK8
-* #304 Upgrade HikariCP 3.2.0 to jdk8 compatible
+THIS RELEASE REQUIRES JDK8
+
+* #161 depen: Upgrade to use JDK8
+* #304 depen: Upgrade HikariCP 3.2.0 to jdk8 compatible
+* #334 test: Make test database port configurable through CI props
 
 ## quartz-2.3.x
 
