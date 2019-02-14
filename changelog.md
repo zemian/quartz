@@ -9,6 +9,7 @@ THIS RELEASE REQUIRES JDK7
 * #146 bugfix: Release BLOCKED triggers in releaseAcquiredTrigger
 * #212 bugfix: QuartzInitializerListener: fix a typo
 * #193 bugfix: Job execution context impl returns incorrect recovering job key
+* #172 bugfix: Miss notify SchedulerListeners in QuartzScheduler.java
 * #160 improv: Add drop table if exists check in sql script for postgres
 * #214 improv: Reuse JobBuilder.storeDurably(boolean) in JobBuilder
 * #281 improv: Fix no setter for dataSource property validateOnCheckout
