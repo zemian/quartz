@@ -573,7 +573,7 @@ public class QuartzScheduler implements RemotableQuartzScheduler {
     /**
      * <p>
      * Temporarily halts the <code>QuartzScheduler</code>'s firing of <code>{@link org.quartz.Trigger}s</code>.
-     * The <code>QuartzScheduler</code> is actually paused when {@link #standby()} return true
+     * The <code>QuartzScheduler</code> is actually paused when {@link #isStandby()} return true
      * </p>
      * 
      * <p>

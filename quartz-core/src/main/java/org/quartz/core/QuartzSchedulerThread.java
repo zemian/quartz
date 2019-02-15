@@ -60,12 +60,19 @@ public class QuartzSchedulerThread extends Thread {
 
     private final Object sigLock = new Object();
 
+    // These two are not volatile because they are updated using synchronized sigLock object.
     private boolean signaled;
     private long signaledNextFireTime;
 
+    // Flag to signal pausing while this thread is still running.
     private volatile boolean paused;
+
+    // Flag to tell when this thread is in full pause mode (or scheduler is in standby)
+    // This flag can be use to better tell there is no more processing of acquired triggers
+    // when scheduler is in full standby mode.
     private volatile boolean standby;
 
+    // Halt thread means the thread will exit and not running any more!
     private AtomicBoolean halted;
 
     private Random random = new Random(System.currentTimeMillis());
@@ -212,7 +219,7 @@ public class QuartzSchedulerThread extends Thread {
      * </p>
      *
      * @param candidateNewNextFireTime the time (in millis) when the newly scheduled trigger
-     * will fire.  If this method is being called do to some other even (rather
+     * will fire.  If this method is being called due to some other even (rather
      * than scheduling a trigger), the caller should pass zero (0).
      */
     public void signalSchedulingChange(long candidateNewNextFireTime) {
