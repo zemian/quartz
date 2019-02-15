@@ -63,7 +63,8 @@ public class QuartzSchedulerThread extends Thread {
     private boolean signaled;
     private long signaledNextFireTime;
 
-    private boolean paused;
+    private volatile boolean paused;
+    private volatile boolean standby;
 
     private AtomicBoolean halted;
 
@@ -121,6 +122,7 @@ public class QuartzSchedulerThread extends Thread {
         // state
         // so processing doesn't start yet...
         paused = true;
+        standby = true;
         halted = new AtomicBoolean(false);
     }
 
@@ -154,6 +156,7 @@ public class QuartzSchedulerThread extends Thread {
                 signalSchedulingChange(0);
             } else {
                 sigLock.notifyAll();
+                standby = false;
             }
         }
     }
@@ -195,6 +198,10 @@ public class QuartzSchedulerThread extends Thread {
 
     boolean isPaused() {
         return paused;
+    }
+
+    boolean isStandby() {
+        return standby;
     }
 
     /**
@@ -249,6 +256,7 @@ public class QuartzSchedulerThread extends Thread {
                 // check if we're supposed to pause...
                 synchronized (sigLock) {
                     while (paused && !halted.get()) {
+                        standby = true;
                         try {
                             // wait until togglePause(false) is called...
                             sigLock.wait(1000L);
@@ -259,7 +267,7 @@ public class QuartzSchedulerThread extends Thread {
                         // wait again after unpausing
                         acquiresFailed = 0;
                     }
-
+                    standby = paused;
                     if (halted.get()) {
                         break;
                     }
