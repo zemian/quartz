@@ -829,6 +829,18 @@ If "org.quartz.scheduler.batchTriggerAcquisitionMaxCount" is set to > 1, and JDB
 
 The class name to be used to produce an instance of a `org.quartz.impl.jdbcjobstore.Semaphore` to be used for locking control on the job store data.  This is an advanced configuration feature, which should not be used by most users.  By default, Quartz will select the most appropriate (pre-bundled) Semaphore implementation to use.  `org.quartz.impl.jdbcjobstore.UpdateLockRowSemaphore` http://jira.opensymphony.com/browse/QUARTZ-497[QUARTZ-497] may be of interest to MS SQL Server users.  See http://jira.opensymphony.com/browse/QUARTZ-441[QUARTZ-441].
 
+=== Customizing `StdRowLockSemaphore`
+
+If you explicitly choose to use this DB Semaphore, you can customize it further on how frequent to poll for DB locks.
+
+`Example of Using a Custom StdRowLockSemaphore Implementation`
+
+----
+org.quartz.jobStore.lockHandler.class = org.quartz.impl.jdbcjobstore.StdRowLockSemaphore
+org.quartz.jobStore.lockHandler.maxRetry = 7     # Default is 3
+org.quartz.jobStore.lockHandler.maxRetry = 3000  # Default is 1000 millis
+----
+
 `org.quartz.jobStore.driverDelegateInitString`
 
 A pipe-delimited list of properties (and their values) that can be passed to the DriverDelegate during initialization time.
