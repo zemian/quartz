@@ -27,4 +27,4 @@ jobs:
   - template: build-templates/maven-common.yml@templates
     parameters:
       jdkVersion: '1.8'
-      mavenOptions: "${parameters.mavenOptions} -Dtest.databasePort=1528"
+      options: '-Dtest.databasePort=1527'
