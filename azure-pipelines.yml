@@ -27,4 +27,4 @@ jobs:
   - template: build-templates/maven-common.yml@templates
     parameters:
       jdkVersion: '1.7'
-      mavenOptions: "${parameters.mavenOptions} -Dhttps.protocols=TLSv1.2 -Dtest.databasePort=1527"
+      options: '-Dhttps.protocols=TLSv1.2 -Dtest.databasePort=1528'
