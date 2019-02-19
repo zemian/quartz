@@ -1,0 +1,55 @@
+= Download Quartz
+:toc:
+:quartz-version: 2.3.1
+:quartz-latest-download-link: https://github.com/quartz-scheduler/downloads/quartz-2.3.1-distribution.tar.gz
+
+== Using Maven as Dependency
+
+If you are a Maven user you can add the dependencies to your existing project.
+
+Add the following into your project `pom.xml` file under `<dependencies>` element section:
+
+[source,xml,subs="verbatim,attributes"]
+----
+<!-- Quartz Core -->
+<dependency>
+  <groupId>org.quartz-scheduler</groupId>
+  <artifactId>quartz</artifactId>
+  <version>{quartz-version}</version>
+</dependency>
+----
+
+Additional, you may include these optional dependencies if you choose use them
+
+[source,xml,subs="verbatim,attributes"]
+----
+<!-- Quartz uses SLF4J, so we need an actual logger -->
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+</dependency>
+
+<!-- DB Driver if you choose to use PostgreSQL as Quartz JDBCStore -->
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.2.5</version>
+</dependency>
+----
+
+
+== Manual Downloads
+
+You can download the full distribution (with examples, source, dependencies, doc, etc.).
+
+{quartz-latest-download-link}[Quartz {quartz-version} .tar.gz]
+
+=== Previous releases
+
+Full Distributions
+
+* http://d2zwv9pap9ylyd.cloudfront.net/quartz-2.2.3-distribution.tar.gz[Quartz 2.2.3 .tar.gz]
+* http://d2zwv9pap9ylyd.cloudfront.net/quartz-2.1.7-distribution.tar.gz[Quartz 2.1.7 .tar.gz]
+* http://d2zwv9pap9ylyd.cloudfront.net/quartz-2.0.2-distribution.tar.gz[Quartz 2.0.2 .tar.gz]
+* http://d2zwv9pap9ylyd.cloudfront.net/quartz-1.8.6-distribution.tar.gz[Quartz 1.8.6 .tar.gz]
