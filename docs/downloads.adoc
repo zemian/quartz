@@ -1,7 +1,7 @@
 = Download Quartz
 :toc:
-:quartz-version: 2.3.1
-:quartz-latest-download-link: https://github.com/quartz-scheduler/downloads/quartz-2.3.1-distribution.tar.gz
+:quartz-version: 2.4.0
+:quartz-latest-download-link: https://github.com/quartz-scheduler/downloads/quartz-2.4.0-distribution.tar.gz
 
 == Using Maven as Dependency
 

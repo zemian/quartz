@@ -1,6 +1,6 @@
 = Quartz Documentation
 :toc:
-:quartz-version: 2.3.1
+:quartz-version: 2.4.0
 
 This documentation is for Quartz {quartz-version}.
 
