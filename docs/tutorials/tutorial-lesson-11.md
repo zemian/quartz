@@ -1,8 +1,4 @@
----
-title: Tutorial 11
-visible_title: "Quartz Tutorials"
-active_sub_menu_id: site_mnu_docs_tutorials
----
+
 <div class="secNavPanel">
           <a href="./index.md" title="Go to Tutorial Table of Contents">Table of Contents</a> |
           <a href="./tutorial-lesson-10.md">&lsaquo;&nbsp;Lesson 10</a> |
