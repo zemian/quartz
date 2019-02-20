@@ -108,7 +108,7 @@ Set the property JobDetail.setDurability(true) - which instructs Quartz not to d
 
 How do I keep a Job from firing concurrently?::
 
-Make the job class implement StatefulJob rather than Job. Read the JavaDOC for StatefulJob for more information.
+Annotate your job with `@DisallowConcurrentExecution` and/or `@PersistJobDataAfterExecution`.
 
 How do I stop a Job that is currently executing?::
 

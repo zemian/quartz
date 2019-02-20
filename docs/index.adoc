@@ -33,6 +33,7 @@ Get Quartz from link:downloads.adoc[Downloads]
 
 === Quartz Developer's Guide
 
+* link:contribute.adoc[Contribution Guide]
 * link:build.adoc[Build Instructions]
 
 === More Help?
