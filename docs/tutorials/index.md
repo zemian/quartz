@@ -1,41 +1,33 @@
----
-title: Tutorials
-visible_title: "Quartz Tutorials"
-active_sub_menu_id: site_mnu_docs_tutorials
----
 # Quartz Job Scheduler Tutorials
 
-<blockquote>
-Before starting the tutorial, you may first want to review the <a href="/documentation/quartz-2.2.x/quick-start.html">Quick Start Guide</a>, which covers download, installation, and very basic configuration of Quartz.
-</blockquote>
-
+Before starting the tutorial, you may first want to review the [Quick Start Guide](../quick-start-guide.adoc), which covers download, installation, and very basic configuration of Quartz.
 
 ### Choose a Lesson:
 
-<a href="/documentation/quartz-2.2.x/tutorials/tutorial-lesson-01.html" title="Tutorial Lesson1">Lesson 1: Using Quartz</a>
+[Lesson 1: Using Quartz](tutorial-lesson-01.md)
 
-<a href="/documentation/quartz-2.2.x/tutorials/tutorial-lesson-02.html" title="Tutorial Lesson2">Lesson 2: The Quartz API, and Introduction to Jobs And Triggers</a>
+[Lesson 2: The Quartz API, and Introduction to Jobs And Triggers](tutorial-lesson-02.md)
 
-<a href="/documentation/quartz-2.2.x/tutorials/tutorial-lesson-03.html" title="Tutorial Lesson3">Lesson 3: More About Jobs &amp; JobDetails</a>
+[Lesson 3: More About Jobs &amp; JobDetails](tutorial-lesson-03.md)
 
-<a href="/documentation/quartz-2.2.x/tutorials/tutorial-lesson-04.html" title="Tutorial Lesson4">Lesson 4: More About Triggers</a>
+[Lesson 4: More About Triggers](tutorial-lesson-04.md)
 
-<a href="/documentation/quartz-2.2.x/tutorials/tutorial-lesson-05.html" title="Tutorial Lesson5">Lesson 5: SimpleTriggers</a>
+[Lesson 5: SimpleTriggers](tutorial-lesson-05.md)
 
-<a href="/documentation/quartz-2.2.x/tutorials/tutorial-lesson-06.html" title="Tutorial Lesson6">Lesson 6: CronTriggers</a>
+[Lesson 6: CronTriggers](tutorial-lesson-06.md)
 
-<a href="/documentation/quartz-2.2.x/tutorials/tutorial-lesson-07.html" title="Tutorial Lesson7">Lesson 7: TriggerListeners &amp; JobListeners</a>
+[Lesson 7: TriggerListeners & JobListeners](tutorial-lesson-07.md)
 
-<a href="/documentation/quartz-2.2.x/tutorials/tutorial-lesson-08.html" title="Tutorial Lesson8">Lesson 8: SchedulerListeners</a>
+[Lesson 8: SchedulerListeners](tutorial-lesson-08.md)
 
-<a href="/documentation/quartz-2.2.x/tutorials/tutorial-lesson-09.html" title="Tutorial Lesson9">Lesson 9: JobStores</a>
+[Lesson 9: JobStores](tutorial-lesson-09.md)
 
-<a href="/documentation/quartz-2.2.x/tutorials/tutorial-lesson-10.html" title="Tutorial Lesson10">Lesson 10: Configuration, Resource Usage and SchedulerFactory</a>
+[Lesson 10: Configuration, Resource Usage and SchedulerFactory](tutorial-lesson-10.md)
 
-<a href="/documentation/quartz-2.2.x/tutorials/tutorial-lesson-11.html" title="Tutorial Lesson11">Lesson 11: Advanced (Enterprise) Features</a>
+[Lesson 11: Advanced (Enterprise) Features](tutorial-lesson-11.md)
 
-<a href="/documentation/quartz-2.2.x/tutorials/tutorial-lesson-12.html" title="Tutorial Lesson12">Lesson 12: Miscellaneous Features</a>
+[Lesson 12: Miscellaneous Features](tutorial-lesson-12.md)
 
 ### Choose a Special Topic:
 
-[CronTrigger Tutorial](crontrigger.html)
+[CronTrigger Tutorial](crontrigger.md)
