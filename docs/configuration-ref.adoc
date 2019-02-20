@@ -171,9 +171,7 @@ scheduler's name ("org.quartz.scheduler.instanceName") plus an the appended stri
 
 
 A boolean value ('true' or 'false') that specifies whether the main thread of the scheduler should be a daemon thread or
-not. See also the *org.quartz.scheduler.makeSchedulerThreadDaemon* property for tuning the <a
-    href="ConfigThreadPool.html" title="ConfigThreadPool">SimpleThreadPool</a> if that is the thread pool implementation
-you are using (which is most likely the case).
+not. See also the *org.quartz.scheduler.makeSchedulerThreadDaemon* property for tuning the `SimpleThreadPool` if that is the thread pool implementation you are using (which is most likely the case).
 
 `org.quartz.scheduler.threadsInheritContextClassLoaderOfInitializer`
 
@@ -360,7 +358,7 @@ Can be any int between *Thread.MIN_PRIORITY* (which is 1) and *Thread.MAX_PRIORI
 `org.quartz.threadPool.makeThreadsDaemons`
 
 
-Can be set to "true" to have the threads in the pool created as daemon threads.  Default is "false".  See also the *<a href="ConfigMain.html" title="ConfigMain">org.quartz.scheduler.makeSchedulerThreadDaemon</a>* property.
+Can be set to "true" to have the threads in the pool created as daemon threads.  Default is "false".  See also the ConfigMain `org.quartz.scheduler.makeSchedulerThreadDaemon` property.
 
 `org.quartz.threadPool.threadsInheritGroupOfInitializingThread`
 
@@ -380,7 +378,7 @@ The prefix for thread names in the worker pool - will be postpended with a numbe
 
 If you use your own implementation of a thread pool, you can have properties set on it reflectively simply by naming the property as thus:
 
-`Setting Properties on a Custom ThreadPool`
+Setting Properties on a Custom ThreadPool
 
 ----
 org.quartz.threadPool.class = com.mycompany.goo.FooThreadPool
@@ -401,7 +399,7 @@ properties are set reflectively. Only primitive data type values (including Stri
 
 Thus, the general pattern for defining a "global" TriggerListener is:
 
-`Configuring a Global TriggerListener`
+Configuring a Global `TriggerListener`
 
 ----
 org.quartz.triggerListener.NAME.class = com.foo.MyListenerClass
@@ -412,7 +410,7 @@ org.quartz.triggerListener.NAME.prop2Name = prop2Value
 
 And the general pattern for defining a "global" JobListener is:
 
-`Configuring a Global JobListener`
+Configuring a Global `JobListener`
 
 ----
 org.quartz.jobListener.NAME.class = com.foo.MyListenerClass
@@ -426,7 +424,7 @@ Like listeners configuring plugins through the configuration file consists of gi
 
 Thus, the general pattern for defining a plug-in is:
 
-`Configuring a Plugin`
+Configuring a Plugin
 
 ----
 org.quartz.plugin.NAME.class = com.foo.MyPluginClass
@@ -441,7 +439,7 @@ There are several Plugins that come with Quartz, that can be found in the *org.q
 
 The logging trigger history plugin catches trigger events (it is also a trigger listener) and logs then with Jakarta Commons-Logging.  See the class's JavaDoc for a list of all the possible parameters.
 
-`Sample configuration of Logging Trigger History Plugin`
+Sample configuration of Logging Trigger History Plugin
 
 ----
 org.quartz.plugin.triggHistory.class = \
@@ -457,7 +455,7 @@ org.quartz.plugin.triggHistory.triggerCompleteMessage = \
 
 Job initialization plugin reads a set of jobs and triggers from an XML file, and adds them to the scheduler during initialization.  It can also delete exiting data.  See the class's JavaDoc for more details.
 
-`Sample configuration of JobInitializationPlugin`
+Sample configuration of JobInitializationPlugin
 
 ----
 org.quartz.plugin.jobInitializer.class = org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin
@@ -473,7 +471,7 @@ http://www.quartz-scheduler.org/xml/job_scheduling_data_1_8.xsd[/xml/job_schedul
 
 The shutdown-hook plugin catches the event of the JVM terminating, and calls shutdown on the scheduler.
 
-`Sample configuration of ShutdownHookPlugin`
+Sample configuration of ShutdownHookPlugin
 
 ----
 org.quartz.plugin.shutdownhook.class = org.quartz.plugins.management.ShutdownHookPlugin
@@ -589,9 +587,9 @@ It does not make sense to specify a 'true' value for both 'org.quartz.scheduler.
 
 RAMJobStore is used to store scheduling information (job, triggers and calendars) within memory.  RAMJobStore is fast and lightweight, but all scheduling information is lost when the process terminates.
 
-`RAMJobStore is selected by setting the 'org.quartz.jobStore.class' property as such:`
+`RAMJobStore` is selected by setting the `org.quartz.jobStore.class` property as such:
 
-`Setting The Scheduler's JobStore to RAMJobStore`
+Setting The Scheduler's `JobStore` to `RAMJobStore`
 
 ----
 org.quartz.jobStore.class = org.quartz.simpl.RAMJobStore
@@ -632,15 +630,15 @@ JDBCJobStore is used to store scheduling information (job, triggers and calendar
 
 JobStoreTX manages all transactions itself by calling commit() (or rollback()) on the database connection after every action (such as the addition of a job).  JDBCJobStore is appropriate if you are using Quartz in a stand-alone application, or within a servlet container if the application is not using JTA transactions.
 
-The JobStoreTX is selected by setting the 'org.quartz.jobStore.class' property as such:
+The JobStoreTX is selected by setting the `org.quartz.jobStore.class` property as such:
 
-`Setting The Scheduler's JobStore to JobStoreTX`
+Setting The Scheduler's `JobStore` to `JobStoreTX`
 
 ----
 org.quartz.jobStore.class = org.quartz.impl.jdbcjobstore.JobStoreTX
 ----
 
-JobStoreTX can be tuned with the following properties:
+`JobStoreTX` can be tuned with the following properties:
 
 ++++
 <table>
@@ -781,7 +779,7 @@ Note that many databases are known to work with the StdJDBCDelegate, while other
 
 `org.quartz.jobStore.dataSource`
 
-The value of this property must be the name of one the DataSources defined in the configuration properties file.  See the <a href="ConfigDataSources.html" title="ConfigDataSources">configuration docs for DataSources</a> for more information.
+The value of this property must be the name of one the DataSources defined in the configuration properties file.  See the ConfigDataSources configuration docs for DataSources for more information.
 
 `org.quartz.jobStore.tablePrefix`
 
@@ -833,7 +831,7 @@ The class name to be used to produce an instance of a `org.quartz.impl.jdbcjobst
 
 If you explicitly choose to use this DB Semaphore, you can customize it further on how frequent to poll for DB locks.
 
-`Example of Using a Custom StdRowLockSemaphore Implementation`
+Example of Using a Custom `StdRowLockSemaphore` Implementation
 
 ----
 org.quartz.jobStore.lockHandler.class = org.quartz.impl.jdbcjobstore.StdRowLockSemaphore
@@ -860,15 +858,15 @@ JDBCJobStore is used to store scheduling information (job, triggers and calendar
 
 JobStoreCMT relies upon transactions being managed by the application which is using Quartz.  A JTA transaction must be in progress before attempt to schedule (or unschedule) jobs/triggers.  This allows the "work" of scheduling to be part of the applications "larger" transaction.  JobStoreCMT actually requires the use of two datasources - one that has it's connection's transactions managed by the application server (via JTA) and one datasource that has connections that do not participate in global (JTA) transactions.   JobStoreCMT is appropriate when applications are using JTA transactions (such as via EJB Session Beans) to perform their work.
 
-The JobStore is selected by setting the 'org.quartz.jobStore.class' property as such:
+The JobStore is selected by setting the `org.quartz.jobStore.class` property as such:
 
-`Setting The Scheduler's JobStore to JobStoreCMT`
+Setting The Scheduler's `JobStore` to `JobStoreCMT`
 
 ----
 org.quartz.jobStore.class = org.quartz.impl.jdbcjobstore.JobStoreCMT
 ----
 
-JobStoreCMT can be tuned with the following properties:
+`JobStoreCMT` can be tuned with the following properties:
 
 ++++
 <table>
@@ -1029,7 +1027,7 @@ Note that many databases are known to work with the StdJDBCDelegate, while other
 
 `org.quartz.jobStore.dataSource`
 
-The value of this property must be the name of one the DataSources defined in the configuration properties file.  For JobStoreCMT, it is required that this DataSource contains connections that are capable of participating in JTA (e.g. container-managed) transactions.  This typically means that the DataSource will be configured and maintained within and by the application server, and Quartz will obtain a handle to it via JNDI.  See the <a href="ConfigDataSources.html" title="ConfigDataSources">configuration docs for DataSources</a> for more information.
+The value of this property must be the name of one the DataSources defined in the configuration properties file.  For JobStoreCMT, it is required that this DataSource contains connections that are capable of participating in JTA (e.g. container-managed) transactions.  This typically means that the DataSource will be configured and maintained within and by the application server, and Quartz will obtain a handle to it via JNDI.  See the ConfigDataSources configuration docs for DataSources for more information.
 
 `org.quartz.jobStore.nonManagedTXDataSource`
 
@@ -1234,7 +1232,7 @@ from the pool to ensure that it is still valid.  If false, then validation will 
 Discard connections after they have been idle this many seconds.  0 disables the feature. Default is 0.
 
 
-`Example of a Quartz-defined DataSource`
+Example of a Quartz-defined DataSource
 
 ----
 org.quartz.dataSource.myDS.driver = oracle.jdbc.driver.OracleDriver
@@ -1315,7 +1313,7 @@ The (optional) user principal for connecting to the JNDI context.
 
 The (optional) user credentials for connecting to the JNDI context.
 
-`Example of a Datasource referenced from an Application Server`
+Example of a Datasource referenced from an Application Server
 
 ----
 org.quartz.dataSource.myOtherDS.jndiURL=jdbc/myDataSource
@@ -1356,7 +1354,7 @@ org.quartz.dataSource.myOtherDS.java.naming.security.credentials=123
 
 The class name of the ConnectionProvider to use.  After instantiating the class, Quartz can automatically set configuration properties on the instance, bean-style.
 
-`Example of Using a Custom ConnectionProvider Implementation`
+Example of Using a Custom `ConnectionProvider` Implementation
 
 ----
 org.quartz.dataSource.myCustomDS.connectionProvider.class = com.foo.FooConnectionProvider
@@ -1401,7 +1399,7 @@ NOTE:
 Never start (scheduler.start()) a non-clustered instance against the same set of database tables that any other instance is running (start()ed) against. You may get serious data corruption, and will definitely experience erratic behavior.
 
 
-`Example Properties For A Clustered Scheduler`
+Example Properties For A Clustered Scheduler
 
 ----
 #============================================================================
@@ -1446,10 +1444,10 @@ org.quartz.dataSource.myDS.maxConnections = 5
 org.quartz.dataSource.myDS.validationQuery=select 0 from dual
 ----
 
-== Configuration of TerracottaJobStore (Clustering without a database!)
+== Configuration of `TerracottaJobStore` (Clustering without a database!)
 
-TerracottaJobStore is used to store scheduling information (job, triggers and calendars) within a Terracotta server.
-TerracottaJobStore is much more performant than utilizing a database for storing scheduling data (via JDBC-JobStore),
+`TerracottaJobStore` is used to store scheduling information (job, triggers and calendars) within a Terracotta server.
+`TerracottaJobStore` is much more performant than utilizing a database for storing scheduling data (via JDBC-JobStore),
 and yet offers clustering features such as load-balancing and fail-over.
 
 You may want to consider implications of how you setup your Terracotta server, particularly configuration
@@ -1463,15 +1461,15 @@ cluster-wide lock, a pattern that degrades performance as you add more clients.
 
 More information about this JobStore and Terracotta can be found at http://www.terracotta.org/quartz
 
-TerracottaJobStore is selected by setting the 'org.quartz.jobStore.class' property as such:
+`TerracottaJobStore` is selected by setting the `org.quartz.jobStore.class` property as such:
 
-`Setting The Scheduler's JobStore to TerracottaJobStore`
+Setting The Scheduler's `JobStore` to `TerracottaJobStore`
 
 ----
 org.quartz.jobStore.class = org.terracotta.quartz.TerracottaJobStore
 ----
 
-TerracottaJobStore can be tuned with the following properties:
+`TerracottaJobStore` can be tuned with the following properties:
 
 ++++
 <table><thead>
