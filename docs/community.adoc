@@ -7,17 +7,17 @@ Quartz has been around for more than 15 years. As such, there is a large communi
 
 === Find and Give Help
 
-* [Quartz Users' Forum / Mail List &nbsp;&rsaquo;](https://groups.google.com/forum/=!forum/quartz-scheduler) (via Google Groups)
+* https://groups.google.com/forum/=!forum/quartz-scheduler[Quartz Users' Forum / Mail List] (via Google Groups)
 
 === Report Issues, Request Features, Get Code
 
-* [Quartz issue tracker&nbsp;&rsaquo;](https://github.com/quartz-scheduler/quartz/issues "Quartz Issue Tracker")
-* [Quartz source code repository&nbsp;&rsaquo;](https://github.com/quartz-scheduler/quartz "Quartz source code repository")
+* https://github.com/quartz-scheduler/quartz/issues[Quartz Issue Tracker]
+* https://github.com/quartz-scheduler/quartz[Quartz source code repository]
 
 === Participate in the Development of Quartz
 
-* [How to contribute&nbsp;&rsaquo;](./contribute.adoc "How to Contribute")
-* [Quartz developers' Forum / Mail List &nbsp;&rsaquo;](https://groups.google.com/forum/=!forum/quartz-scheduler-dev) (via Google Groups)
+* link:./contribute.adoc[How to Contribute]
+* https://groups.google.com/forum/=!forum/quartz-scheduler-dev[Quartz developers' Forum / Mail List] (via Google Groups)
 
 
 == Join the Team
