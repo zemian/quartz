@@ -22,6 +22,7 @@ list.
 A cron expression is a string comprised of 6 or 7 fields separated by white space. Fields can contain any of the
 allowed values, along with various combinations of the allowed special characters for that field. The fields are as
 follows:
+
 <table cellpadding="3" cellspacing="1">
     <tbody>
         <tr>
@@ -33,7 +34,6 @@ follows:
         <tr>
             <td>Seconds</td>
             <td>YES</td>
-
             <td>0-59</td>
             <td>, - * /</td>
         </tr>
@@ -41,7 +41,6 @@ follows:
             <td>Minutes</td>
             <td>YES</td>
             <td>0-59</td>
-
             <td>, - * /</td>
         </tr>
         <tr>
@@ -49,7 +48,6 @@ follows:
             <td>YES</td>
             <td>0-23</td>
             <td>, - * /</td>
-
         </tr>
         <tr>
             <td>Day of month</td>
@@ -59,7 +57,6 @@ follows:
             </td>
         </tr>
         <tr>
-
             <td>Month</td>
             <td>YES</td>
             <td>1-12 or JAN-DEC</td>
@@ -67,7 +64,6 @@ follows:
         </tr>
         <tr>
             <td>Day of week</td>
-
             <td>YES</td>
             <td>1-7 or SUN-SAT</td>
             <td>, - * ? / L #</td>
@@ -75,12 +71,12 @@ follows:
         <tr>
             <td>Year</td>
             <td>NO</td>
-
             <td>empty, 1970-2099</td>
             <td>, - * /</td>
         </tr>
     </tbody>
 </table>
+
 So cron expressions can be as simple as this: <tt>&#42; * * * * * ?</tt>
 
 or more complex, like this: <tt>0/5 14,18,3-39,52 * ? JAN,MAR,SEP MON-FRI 2002-2010</tt>
@@ -164,6 +160,7 @@ or more complex, like this: <tt>0/5 14,18,3-39,52 * ? JAN,MAR,SEP MON-FRI 2002-2
 ## [Examples](#CronTriggersTutorial-Examples)
 
 Here are some full examples:
+
 <table cellpadding="3" cellspacing="1">
     <tbody>
         <tr>
@@ -172,7 +169,6 @@ Here are some full examples:
         </tr>
         <tr>
             <td><tt>0 0 12 * * ?</tt></td>
-
             <td>Fire at 12pm (noon) every day</td>
         </tr>
         <tr>
@@ -181,7 +177,6 @@ Here are some full examples:
         </tr>
         <tr>
             <td><tt>0 15 10 * * ?</tt></td>
-
             <td>Fire at 10:15am every day</td>
         </tr>
         <tr>
@@ -190,7 +185,6 @@ Here are some full examples:
         </tr>
         <tr>
             <td><tt>0 15 10 * * ? 2005</tt></td>
-
             <td>Fire at 10:15am every day during the year 2005</td>
         </tr>
         <tr>
@@ -199,7 +193,6 @@ Here are some full examples:
         </tr>
         <tr>
             <td><tt>0 0/5 14 * * ?</tt></td>
-
             <td>Fire every 5 minutes starting at 2pm and ending at 2:55pm, every day</td>
         </tr>
         <tr>
@@ -209,7 +202,6 @@ Here are some full examples:
         </tr>
         <tr>
             <td><tt>0 0-5 14 * * ?</tt></td>
-
             <td>Fire every minute starting at 2pm and ending at 2:05pm, every day</td>
         </tr>
         <tr>
@@ -218,7 +210,6 @@ Here are some full examples:
         </tr>
         <tr>
             <td><tt>0 15 10 ? * MON-FRI</tt></td>
-
             <td>Fire at 10:15am every Monday, Tuesday, Wednesday, Thursday and Friday</td>
         </tr>
         <tr>
@@ -227,12 +218,10 @@ Here are some full examples:
         </tr>
         <tr>
             <td><tt>0 15 10 L * ?</tt></td>
-
             <td>Fire at 10:15am on the last day of every month</td>
         </tr>
         <tr>
             <td><tt>0 15 10 L-2 * ?</tt></td>
-
             <td>Fire at 10:15am on the 2nd-to-last last day of every month</td>
         </tr>
         <tr>
@@ -241,7 +230,6 @@ Here are some full examples:
         </tr>
         <tr>
             <td><tt>0 15 10 ? * 6L</tt></td>
-
             <td>Fire at 10:15am on the last Friday of every month</td>
         </tr>
         <tr>
@@ -251,7 +239,6 @@ Here are some full examples:
         </tr>
         <tr>
             <td><tt>0 15 10 ? * 6#3</tt></td>
-
             <td>Fire at 10:15am on the third Friday of every month</td>
         </tr>
         <tr>
@@ -261,11 +248,11 @@ Here are some full examples:
         </tr>
         <tr>
             <td><tt>0 11 11 11 11 ?</tt></td>
-
             <td>Fire every November 11th at 11:11am.</td>
         </tr>
     </tbody>
 </table>
+
 <blockquote>
         Pay attention to the effects of '?' and '*' in the day-of-week and day-of-month fields&#33;
 </blockquote>
