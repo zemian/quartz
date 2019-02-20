@@ -59,7 +59,7 @@ public interface JobListener {
 </code></pre>
 
 
-### Using Your Own Listeners {#TutorialLesson7-UsingYourOwnListeners}
+### [Using Your Own Listeners](#TutorialLesson7-UsingYourOwnListeners)
 
 To create a listener, simply create an object that implements the org.quartz.TriggerListener and/or
 org.quartz.JobListener interface. Listeners are then registered with the scheduler during run time, and must be given a

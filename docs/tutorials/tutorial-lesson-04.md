@@ -18,7 +18,7 @@ types of triggers that you can select from to meet different scheduling needs.
 You will learn about the two most common types of triggers in <a href="./tutorial-lesson-05.md"
     title="Tutorial Lesson 5">Lesson 5: Simple Triggers</a> and <a href="./tutorial-lesson-06.md" title="Tutorial Lesson 6">Lesson 6: Cron Triggers</a>.
 
-### Common Trigger Attributes {#TutorialLesson4-CommonAttrs}
+### [Common Trigger Attributes](#TutorialLesson4-CommonAttrs)
 
 Aside from the fact that all trigger types have TriggerKey properties for tracking their identities, there are
 a number of other properties that are common to all trigger types.  These common properties are set using the
@@ -40,7 +40,7 @@ on June 5th.
 
 Other properties, which take a bit more explanation are discussed in the following sub-sections.
 
-### Priority {#TutorialLesson4-Priority}
+### [Priority](#TutorialLesson4-Priority)
 
 Sometimes, when you have many Triggers (or few worker threads in your Quartz thread pool), Quartz may not have
 enough resources to immediately fire all of the Triggers that are scheduled to fire at the same time. In this
@@ -56,7 +56,7 @@ Any integer value is allowed for priority, positive or negative.
 **Note:** When a trigger's job is detected to require recovery, its recovery is scheduled with the same priority
 as the original trigger.
 
-### Misfire Instructions {#TutorialLesson4-MisfireInstructions}
+### [Misfire Instructions](#TutorialLesson4-MisfireInstructions)
 
 Another important property of a Trigger is its "misfire instruction". A misfire occurs if a persistent trigger
 "misses" its firing time because of the scheduler being shutdown, or because there are no available threads in Quartz's
@@ -68,7 +68,7 @@ yourself familiar with the misfire instructions that are defined on the given tr
 JavaDoc. More specific information about misfire instructions will be given within the tutorial lessons specific to each
 trigger type.
 
-### Calendars {#TutorialLesson4-Calendars}
+### [Calendars](#TutorialLesson4-Calendars)
 
 Quartz ***Calendar*** objects (not java.util.Calendar objects) can be associated with triggers at the
 time the trigger is defined and stored in the scheduler. Calendars are useful for excluding blocks of time from the the

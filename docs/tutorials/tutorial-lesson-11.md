@@ -11,7 +11,7 @@ active_sub_menu_id: site_mnu_docs_tutorials
 
 ## Lesson 11: Advanced (Enterprise) Features
 
-### Clustering {#TutorialLesson11-Clustering}
+### [Clustering](#TutorialLesson11-Clustering)
 
 Clustering currently works with the JDBC-Jobstore (JobStoreTX or JobStoreCMT) and the TerracottaJobStore.
 Features include load-balancing and job fail-over (if the JobDetail's "request recovery" flag is set to true).
@@ -54,7 +54,7 @@ More information about this JobStore and Terracotta can be found at
 <a href="http://www.terracotta.org/quartz">http://www.terracotta.org/quartz</a>
 
 
-### JTA Transactions {#TutorialLesson11-JTATransactions}
+### [JTA Transactions](#TutorialLesson11-JTATransactions)
 
 As explained in <a href="./tutorial-lesson-09.md" title="Tutorial Lesson 9">Lesson 9: JobStores</a>, JobStoreCMT
 allows Quartz scheduling operations to be performed within larger JTA transactions.

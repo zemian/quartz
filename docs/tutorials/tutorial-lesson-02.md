@@ -11,7 +11,7 @@ active_sub_menu_id: site_mnu_docs_tutorials
 
 ## Lesson 2: The Quartz API, Jobs And Triggers
 
-### The Quartz API {#TutorialLesson2-QuartzAPI}
+### [The Quartz API](#TutorialLesson2-QuartzAPI)
 
 The key interfaces of the Quartz API are:
 
@@ -77,7 +77,7 @@ particular points in time (such as a date that represents the next even hour - o
 currently 9:43:27).
 
 
-### Jobs and Triggers {#TutorialLesson2-JobsAndTriggers}
+### [Jobs and Triggers](#TutorialLesson2-JobsAndTriggers)
 
 A Job is a class that implements the ***Job*** interface, which has only one simple method:
 
@@ -125,7 +125,7 @@ be associated with the same job. Another benefit of this loose-coupling is the a
 the scheduler after their associated triggers have expired, so that that it can be rescheduled later, without having to
 re-define it. It also allows you to modify or replace a trigger without having to re-define its associated job.
 
-### Identities {#TutorialLesson2-Identities}
+### [Identities](#TutorialLesson2-Identities)
 
 Jobs and Triggers are given identifying keys as they are registered with the Quartz scheduler. The keys of Jobs and
 Triggers (JobKey and TriggerKey) allow them to be placed into 'groups' which can be useful for organizing your jobs and

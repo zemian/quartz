@@ -54,7 +54,7 @@ Scheduler should create itself as a server object for RMI (make itself available
 to use, etc.. StdSchedulerFactory (discussed below) can also produce Scheduler instances that are actually proxies (RMI
 stubs) to Schedulers created in remote processes.
 
-### StdSchedulerFactory {#TutorialLesson10-StdSchedulerFactory}
+### [StdSchedulerFactory](#TutorialLesson10-StdSchedulerFactory)
 
 StdSchedulerFactory is an implementation of the org.quartz.SchedulerFactory interface. It uses a set of
 properties (java.util.Properties) to create and initialize a Quartz Scheduler. The properties are generally stored in
@@ -66,14 +66,14 @@ There are some sample configurations (including descriptions of the properties) 
 the Quartz distribution. You can find complete documentation in the "Configuration" manual under the "Reference" section
 of the Quartz documentation.
 
-### DirectSchedulerFactory {#TutorialLesson10-DirectSchedulerFactory}
+### [DirectSchedulerFactory](#TutorialLesson10-DirectSchedulerFactory)
 
 DirectSchedulerFactory is another SchedulerFactory implementation. It is useful to those wishing to create their
 Scheduler instance in a more programmatic way. Its use is generally discouraged for the following reasons: (1) it
 requires the user to have a greater understanding of what they're doing, and (2) it does not allow for declarative
 configuration - or in other words, you end up hard-coding all of the scheduler's settings.
 
-### Logging {#TutorialLesson10-Logging}
+### [Logging](#TutorialLesson10-Logging)
 Quartz uses the SLF4J framework for all of its logging needs.  In order to "tune" the logging settings
 (such as the amount of output, and where the output goes), you need to understand the SLF4J framework, which is
 beyond the scope of this document.

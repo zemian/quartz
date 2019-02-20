@@ -23,7 +23,7 @@ to the SchedulerFactory that you use to produce your scheduler instance.
         JobStore to use, but then you should only work with the Scheduler interface in your code.
 </blockquote>
 
-### RAMJobStore {#TutorialLesson9-RAMJobStore}
+### [RAMJobStore](#TutorialLesson9-RAMJobStore)
 
 RAMJobStore is the simplest JobStore to use, it is also the most performant (in terms of CPU time). RAMJobStore
 gets its name in the obvious way: it keeps all of its data in RAM. This is why it's lightning-fast, and also why it's so
@@ -43,7 +43,7 @@ org.quartz.jobStore.class = org.quartz.simpl.RAMJobStore
 
 There are no other settings you need to worry about.
 
-### JDBCJobStore {#TutorialLesson9-JDBCJobStore}
+### [JDBCJobStore](#TutorialLesson9-JDBCJobStore)
 
 JDBCJobStore is also aptly named - it keeps all of its data in a database via JDBC. Because of this it is a bit
 more complicated to configure than RAMJobStore, and it also is not as fast. However, the performance draw-back is not
@@ -136,7 +136,7 @@ org.quartz.jobStore.dataSource = myDS
         non-String classes into a BLOB.
 </blockquote>
 
-### TerracottaJobStore {#TutorialLesson9-TerracottaJobStore}
+### [TerracottaJobStore](#TutorialLesson9-TerracottaJobStore)
 
 TerracottaJobStore provides a means for scaling and robustness without the use of a database.  This means your database
 can be kept free of load from Quartz, and can instead have all of its resources saved for the rest of your application.

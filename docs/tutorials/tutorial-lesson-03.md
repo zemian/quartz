@@ -79,7 +79,7 @@ You may now be wanting to ask "how can I provide properties/configuration for a 
 keep track of a job's state between executions?" The answer to these questions are the same: the key is the JobDataMap,
 which is part of the JobDetail object.
 
-### JobDataMap {#TutorialLesson3-JobDataMap}
+### [JobDataMap](#TutorialLesson3-JobDataMap)
 
 The JobDataMap can be used to hold any amount of (serializable) data objects which you wish to have made available to
 the job instance when it executes. JobDataMap is an implementation of the Java Map interface, and has some added
@@ -241,7 +241,7 @@ to a each executing job as a "job instance" or "instance of a job definition".  
 "job" we are referring to a named definition, or JobDetail.  When we are referring to the class implementing the job
 interface, we usually use the term "job class".
 
-### Job State and Concurrency {#TutorialLesson3-StatefulJob}
+### [Job State and Concurrency](#TutorialLesson3-StatefulJob)
 
 Now, some additional notes about a job's state data (aka JobDataMap) and concurrency.  There are a couple annotations
 that can be added to your Job class that affect Quartz's behavior with respect to these aspects.
@@ -266,7 +266,7 @@ If you use the *@PersistJobDataAfterExecution* annotation, you should strongly c
 *@DisallowConcurrentExecution* annotation, in order to avoid possible confusion (race conditions) of what data was
 left stored when two instances of the same job (JobDetail) executed concurrently.
 
-### Other Attributes Of Jobs {#TutorialLesson3-OtherAttributesOfJobs}
+### [Other Attributes Of Jobs](#TutorialLesson3-OtherAttributesOfJobs)
 
 Here's a quick summary of the other properties which can be defined for a job instance via the JobDetail object:
 
@@ -278,7 +278,7 @@ Here's a quick summary of the other properties which can be defined for a job in
     when the scheduler is started again. In this case, the JobExecutionContext.isRecovering() method will return true.
 
 
-### JobExecutionException {#TutorialLesson3-JobExecutionException}
+### [JobExecutionException](#TutorialLesson3-JobExecutionException)
 
 Finally, we need to inform you of a few details of the `Job.execute(..)` method. The only type of exception
 (including RuntimeExceptions) that you are allowed to throw from the execute method is the JobExecutionException.

@@ -20,7 +20,7 @@ am", or even "every 5 minutes between 9:00 am and 10:00 am on every Monday, Wedn
 Even so, like SimpleTrigger, CronTrigger has a ***startTime*** which specifies when the schedule is in
 force, and an (optional) ***endTime*** that specifies when the schedule should be discontinued.
 
-### Cron Expressions {#TutorialLesson6-CronExpressions}
+### [Cron Expressions](#TutorialLesson6-CronExpressions)
 
 ***Cron-Expressions*** are used to configure instances of CronTrigger. Cron-Expressions are strings
 that are actually made up of seven sub-expressions, that describe individual details of the schedule. These
@@ -80,7 +80,7 @@ day-of-week field means "the third Friday of the month".
 Here are a few more examples of expressions and their meanings - you can find even more in the JavaDoc for
 org.quartz.CronExpression
 
-### Example Cron Expressions {#TutorialLesson6-ExampleCronExpressions}
+### [Example Cron Expressions](#TutorialLesson6-ExampleCronExpressions)
 
 CronTrigger Example 1 - an expression to create a trigger that simply fires every 5 minutes
 
@@ -113,7 +113,7 @@ Note that some scheduling requirements are too complicated to express with a sin
 between 9:00 am and 10:00 am, and every 20 minutes between 1:00 pm and 10:00 pm". The solution in this scenario is to
 simply create two triggers, and register both of them to run the same job.
 
-### Building CronTriggers {#TutorialLesson6-ExampleCronExpressions}
+### [Building CronTriggers](#TutorialLesson6-ExampleCronExpressions)
 
 CronTrigger instances are built using TriggerBuilder (for the trigger's main properties) and CronScheduleBuilder
 (for the CronTrigger-specific properties).  To use these builders in a DSL-style, use static imports:
@@ -182,7 +182,7 @@ or -
 </code></pre>
 
 
-### CronTrigger Misfire Instructions {#TutorialLesson6-CronTriggerMisfireInstructions}
+### [CronTrigger Misfire Instructions](#TutorialLesson6-CronTriggerMisfireInstructions)
 
 The following instructions can be used to inform Quartz what it should do when a misfire occurs for CronTrigger.
 (Misfire situations were introduced in the More About Triggers section of this tutorial). These instructions are defined

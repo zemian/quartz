@@ -124,7 +124,7 @@ in the examples above.
 </blockquote>
 
 
-### SimpleTrigger Misfire Instructions {#TutorialLesson5-SimpleTriggerMisfireInstructions}
+### [SimpleTrigger Misfire Instructions](#TutorialLesson5-SimpleTriggerMisfireInstructions)
 
 SimpleTrigger has several instructions that can be used to inform Quartz what it should do when a misfire occurs.
 (Misfire situations were introduced in "Lesson 4: More About Triggers"). These instructions are defined
