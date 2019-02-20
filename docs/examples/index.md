@@ -6,7 +6,7 @@ Welcome to the documentation for the Quartz Example programs. Quartz ships with 
 
 ## [Where to Find the Examples](#ExamplesOverview-WheretoFindtheExamples)
 
-All of the examples listed below are part of the [Quartz distribution](../downloads.adoc).
+All of the examples listed below are part of the [Quartz distribution](../downloads.adoc). Or directly from the [Quartz source code](../../distribution/examples/src/main/java/org/quartz/examples)
 
 The quartz examples are listed under the **examples** directory under the main Quartz directory.  Under the **examples** directory, you will find an example sub-directory for each example, labeled **example1**, **example2**, **example3** etc...
 
