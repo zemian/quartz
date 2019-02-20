@@ -49,7 +49,7 @@ The following are examples that would still require a signed CLA before your sub
 
 If you’re not sure if your fix is obvious you can ask us by sending an email to: tc-oss@softwareag.com.
 
-==== Agreement and Grant of Copyright<a name="grant"></a>
+==== Agreement and Grant of Copyright
 
 For those contributions that do not require a CLA: _upon submission of Your Contribution you hereby grant Software AG and to recipients of the software distributed by Software AG a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to install, use, reproduce, prepare derivative works of, publicly display, publicly perform, offer to sell, sell, import, sublicense, transfer, and distribute Your Contribution and any such derivative works._
 

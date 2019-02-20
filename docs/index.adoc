@@ -33,8 +33,10 @@ Get Quartz from link:downloads.adoc[Downloads]
 
 === Quartz Developer's Guide
 
+* link:community.adoc[Community & Dev Team]
 * link:contribute.adoc[Contribution Guide]
 * link:build.adoc[Build Instructions]
+* https://github.com/quartz-scheduler/quartz/wiki[WIKI]
 
 === More Help?
 
