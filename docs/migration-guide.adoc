@@ -2,9 +2,13 @@
 
 :toc:
 
-== Quartz 1.8.x to Quartz 2.2 Migration Guide
+== Quartz 2.x to Quartz 3.x Migration Guide
 
-This document outlines how to migrate an application using Quartz Scheduler 1.8.x to version 2.x or 3.x - it does not
+There is no major DB schema changes in 3.x version, but mainly code fix, API changes, dependencies, and JDK upgrades.
+
+== Quartz 1.8.x to Quartz 2.x Migration Guide
+
+This document outlines how to migrate an application using Quartz Scheduler 1.8.x to version 2.x - it does not
 document every change or new feature.
 
 Depending upon the particular Quartz features made use of by your existing Quartz 1.x application, there are
@@ -28,8 +32,8 @@ As you proceed toward making your code build again, remember to refer to JavaDoc
 
 ===== Typed Collections
 
- API methods that return (or take as parameters) arrays now return (or take) typed collections.  For example, rather
-than *getJobGroupNames(): String[]* we now have *getJobGroupNames(): List&lt;String&gt;*.   After updating your
+API methods that return (or take as parameters) arrays now return (or take) typed collections.  For example, rather
+than *getJobGroupNames(): String[]* we now have *getJobGroupNames(): List<String>*.   After updating your
 project code's dependency to be upon the Quartz 2.0 library, the compiler will find and indicate errors at all of your
 usages of arrays rather than Lists, Sets, etc.  Many applications will have very few occurrences to fix, while others
 with have many dozens - depending upon the nature of the application and its usages of the Quartz API.
@@ -43,7 +47,7 @@ String[] triggerGroups = sched.getTriggerGroupNames();
 New code:
 
 ----
-List&lt;String&gt; triggerGroups = sched.getTriggerGroupNames();
+List<String> triggerGroups = sched.getTriggerGroupNames();
 ----
 
 
@@ -78,7 +82,7 @@ New code:
 import static org.quartz.TriggerKey.*;
 import static org.quartz.JobKey.*;
 ...
-List&lt;TriggerKey&gt; triggersInGroup = sched.getTriggerKeys("myGroup");
+List<TriggerKey> triggersInGroup = sched.getTriggerKeys("myGroup");
 Trigger trg = sched.getTrigger(triggerKey("myTriggerName", "myGroup"));
 sched.unscheduleJob(triggerKey("myOtherTriggerName"));
 trg.getKey().getName();
@@ -295,8 +299,8 @@ If you were using NthIncludedDayTrigger, it is recommended that you find alterna
 If you use JDBCJobStore, you will need to make several changes to the database to transform it to the new expected schema.
 
 Exact syntax will vary between databases, but most should work with the following commands or small variations (the
-table creation script for each database (found in the Quartz distribution's "docs/dbTables" directory) can also serve
-as reference.
+link:../quartz-core/src/main/resources/org/quartz/impl/jdbcjobstore[table creation script] for each database can also serve
+as reference.)
 
 
 ----
