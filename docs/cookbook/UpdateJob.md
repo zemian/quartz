@@ -1,5 +1,5 @@
 
-<div class="secNavPanel"><a href=".">Contents</a> | <a href="ScheduleStoredJob.html">&lsaquo;&nbsp;Prev</a> | <a href="UpdateTrigger.html">Next&nbsp;&rsaquo;</a></div>
+<div class="secNavPanel"><a href=".">Contents</a> | <a href="ScheduleStoredJob.md">&lsaquo;&nbsp;Prev</a> | <a href="UpdateTrigger.md">Next&nbsp;&rsaquo;</a></div>
 
 
 

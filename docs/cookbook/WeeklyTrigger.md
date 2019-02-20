@@ -1,5 +1,5 @@
 
-<div class="secNavPanel"><a href=".">Contents</a> | <a href="BiDailyTrigger.html">&lsaquo;&nbsp;Prev</a> | <a href="BiWeeklyTrigger.html">Next&nbsp;&rsaquo;</a></div>
+<div class="secNavPanel"><a href=".">Contents</a> | <a href="BiDailyTrigger.md">&lsaquo;&nbsp;Prev</a> | <a href="BiWeeklyTrigger.md">Next&nbsp;&rsaquo;</a></div>
 
 
 

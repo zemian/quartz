@@ -1,5 +1,5 @@
 
-<div class="secNavPanel"><a href=".">Contents</a> | <a href="ListJobs.html">&lsaquo;&nbsp;Prev</a> | <a href="JobTriggers.html">Next&nbsp;&rsaquo;</a></div>
+<div class="secNavPanel"><a href=".">Contents</a> | <a href="ListJobs.md">&lsaquo;&nbsp;Prev</a> | <a href="JobTriggers.md">Next&nbsp;&rsaquo;</a></div>
 
 
 

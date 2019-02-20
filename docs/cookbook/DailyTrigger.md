@@ -1,5 +1,5 @@
 
-<div class="secNavPanel"><a href=".">Contents</a> | <a href="NintyMinTrigger.html">&lsaquo;&nbsp;Prev</a> | <a href="BiDailyTrigger.html">Next&nbsp;&rsaquo;</a></div>
+<div class="secNavPanel"><a href=".">Contents</a> | <a href="NintyMinTrigger.md">&lsaquo;&nbsp;Prev</a> | <a href="BiDailyTrigger.md">Next&nbsp;&rsaquo;</a></div>
 
 
 

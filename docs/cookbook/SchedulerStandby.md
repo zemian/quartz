@@ -1,5 +1,5 @@
 
-<div class="secNavPanel"><a href=".">Contents</a> | <a href="CreateScheduler.html">&lsaquo;&nbsp;Prev</a> | <a href="ShutdownScheduler.html">Next&nbsp;&rsaquo;</a></div>
+<div class="secNavPanel"><a href=".">Contents</a> | <a href="CreateScheduler.md">&lsaquo;&nbsp;Prev</a> | <a href="ShutdownScheduler.md">Next&nbsp;&rsaquo;</a></div>
 
 
 

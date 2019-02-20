@@ -1,5 +1,5 @@
 
-<div class="secNavPanel"><a href=".">Contents</a> | <a href="ServletInitScheduler.html">&lsaquo;&nbsp;Prev</a> | <a href="DefineJobWithData.html">Next&nbsp;&rsaquo;</a></div>
+<div class="secNavPanel"><a href=".">Contents</a> | <a href="ServletInitScheduler.md">&lsaquo;&nbsp;Prev</a> | <a href="DefineJobWithData.md">Next&nbsp;&rsaquo;</a></div>
 
 
 
