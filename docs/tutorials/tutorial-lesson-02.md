@@ -4,9 +4,9 @@ visible_title: "Quartz Tutorials"
 active_sub_menu_id: site_mnu_docs_tutorials
 ---
 <div class="secNavPanel">
-          <a href="./" title="Go to Tutorial Table of Contents">Table of Contents</a> |
+          <a href="./index.md" title="Go to Tutorial Table of Contents">Table of Contents</a> |
           <a href="./tutorial-lesson-01.md">&lsaquo;&nbsp;Lesson 1</a> |
-          <a href="./tutorial-lesson-03.md">&lsaquo;&nbsp;Lesson 3</a> |
+          <a href="./tutorial-lesson-03.md">Lesson 3&nbsp;&rsaquo;</a> |
 </div>
 
 ## Lesson 2: The Quartz API, Jobs And Triggers
