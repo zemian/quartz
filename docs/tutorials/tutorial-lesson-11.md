@@ -21,7 +21,7 @@ are identical, with the following allowable exceptions: Different thread pool si
 <blockquote>
         Never run clustering on separate machines, unless their clocks are synchronized using some form of
         time-sync service (daemon) that runs very regularly (the clocks must be within a second of each other). See <a
-            href="http://www.boulder.nist.gov/timefreq/service/its.htm" target="external">http://www.boulder.nist.gov/timefreq/service/its.htm</a>
+            href="https://www.nist.gov/pml/time-and-frequency-division/services/internet-time-service-its" target="external">https://www.nist.gov/pml/time-and-frequency-division/services/internet-time-service-its</a>
         if you are unfamiliar with how to do this.
 </blockquote>
 <blockquote>
