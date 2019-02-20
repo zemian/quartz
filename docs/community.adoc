@@ -25,9 +25,9 @@ Quartz has been around for more than 15 years. As such, there is a large communi
 Got skills with coding, documenting, supporting or even art? We'd love to have you on the team!
 
 
-== Significant Contributors, Past and Present
+=== Significant Contributors, Past and Present
 
-* James House, Alex Snaps, Ludovic Orban, Tim Eck, Anthony Dahanne, Chris Dennis, Zemian Deng, Aaron Craven, Jasper Rosenberg, Henri Yandell, Weston M. Price, Bill Kratzer, Brian Topping, Brooke Hedrick, Chris Bonham, Chuck Cavaness, Fernando Ribeiro, Dafydd James, Jeffrey Wescott, Matthew Payne, David White, Mike Curwen, Mohammad Rezaei, Srinivas Venkatarangaiah, PartNET Inc.
+James House, Alex Snaps, Ludovic Orban, Tim Eck, Anthony Dahanne, Chris Dennis, Zemian Deng, Aaron Craven, Jasper Rosenberg, Henri Yandell, Weston M. Price, Bill Kratzer, Brian Topping, Brooke Hedrick, Chris Bonham, Chuck Cavaness, Fernando Ribeiro, Dafydd James, Jeffrey Wescott, Matthew Payne, David White, Mike Curwen, Mohammad Rezaei, Srinivas Venkatarangaiah, PartNET Inc.
 
 
 == Tools Support
