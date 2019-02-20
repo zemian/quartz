@@ -1,6 +1,7 @@
 = Quartz Documentation
 :toc:
 :quartz-version: 2.3.1
+:quartz-javadoc-link: http://www.quartz-scheduler.org/api/2.3.x/index.html
 
 This documentation is for Quartz {quartz-version}.
 
@@ -22,7 +23,7 @@ Get Quartz from link:downloads.adoc[Downloads]
 * link:introduction.adoc[Introduction]
 * link:quick-start-guide.adoc[Quartz Quick Start Guide]
 * link:configuration-ref.adoc[Configuration Reference]
-* http://www.quartz-scheduler.org/api/2.3.x/index.html[JavaDoc]
+* {quartz-javadoc-link}[JavaDoc]
 * link:../distribution/examples[Quartz Examples]
 * link:faq.adoc[FAQ]
 * link:best-practices.adoc[Best Practices]
