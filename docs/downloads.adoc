@@ -1,7 +1,6 @@
 = Download Quartz
 :toc:
 :quartz-version: latest
-:quartz-download-link: http://www.quartz-scheduler.org/downloads/quartz-latest-distribution.tar.gz
 
 == Using Maven as Dependency
 
@@ -43,7 +42,7 @@ Additional, you may include these optional dependencies if you choose use them
 
 You can download the full distribution (with examples, source, dependencies, doc, etc.).
 
-{quartz-download-link}[Quartz {quartz-version}]
+http://www.quartz-scheduler.org/downloads/quartz-{quartz-version}-distribution.tar.gz[quartz-{quartz-version}-distribution.tar.gz]
 
 === Previous releases
 
