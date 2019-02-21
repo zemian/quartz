@@ -8,33 +8,33 @@ Project Home: https://github.com/quartz-scheduler/quartz/
 
 == Downloads
 
-Get Quartz from link:downloads.adoc[Downloads]
+Get Quartz from <<downloads.adoc#,Downloads>>
 
 == Release and General Information
 
-* link:../changelog.adoc[Change Log]
-* link:../license.adoc[License (Apache 2.0)]
+* <<changelog.adoc#,Change Log>>
+* <<license.adoc#,License (Apache 2.0)>>
 * https://documentation.softwareag.com/legal/[Legal Notices]
 * https://confluence.terracotta.org/display/release/Home[Terracotta Platform and Release Compatibility Tables]
 
 == User's Guide
 
-* link:introduction.adoc[Introduction]
-* link:quick-start-guide.adoc[Quartz Quick Start Guide]
-* link:configuration-ref.adoc[Configuration Reference]
+* <<introduction.adoc#,Introduction>>
+* <<quick-start-guide.adoc#,Quartz Quick Start Guide>>
+* <<configuration-ref.adoc#,Configuration Reference>>
 * http://www.quartz-scheduler.org/api/{quartz-version}/[JavaDoc]
-* link:tutorials/index.md[Tutorial]
-* link:examples/index.md[Examples]
-* link:cookbook/index.md[Cookbook]
-* link:faq.adoc[FAQ]
-* link:best-practices.adoc[Best Practices]
-* link:migration-guide.adoc[Migration Guide]
+* <<tutorials/index.md#,Tutorial>>
+* <<examples/index.md#,Examples>>
+* <<cookbook/index.md#,Cookbook>>
+* <<faq.adoc#,FAQ>>
+* <<best-practices.adoc#,Best Practices>>
+* <<migration-guide.adoc#,Migration Guide>>
 
 == Quartz Developer's Guide
 
-* link:community.adoc[Community & Dev Team]
-* link:contribute.adoc[Contribution Guide]
-* link:build.adoc[Build Instructions]
+* <<community.adoc#,Community & Dev Team>>
+* <<contribute.adoc#,Contribution Guide>>
+* <<build.adoc#,Build Instructions>>
 * https://github.com/quartz-scheduler/quartz/wiki[WIKI]
 
 == More Help?
