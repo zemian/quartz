@@ -2,7 +2,7 @@
 
 Before starting the tutorial, you may first want to review the <<../quick-start-guide.adoc#,Quick Start Guide>>, which covers download, installation, and very basic configuration of Quartz.
 
-=== Choose a Lesson:
+== Choose a Lesson:
 
 link:tutorial-lesson-01.html[Lesson 1: Using Quartz]
 
@@ -28,6 +28,6 @@ link:tutorial-lesson-11.html[Lesson 11: Advanced (Enterprise) Features]
 
 link:tutorial-lesson-12.html[Lesson 12: Miscellaneous Features]
 
-=== Choose a Special Topic:
+== Choose a Special Topic:
 
 link:crontrigger.html[CronTrigger Tutorial]
