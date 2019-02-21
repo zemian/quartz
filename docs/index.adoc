@@ -1,24 +1,24 @@
 = Quartz Documentation
 :toc:
-:quartz-version: 2.3.1
-:quartz-javadoc-link: http://www.quartz-scheduler.org/api/2.3.x/index.html
+:quartz-version: latest
+:quartz-javadoc-link: http://www.quartz-scheduler.org/api/latest/
 
 This documentation is for Quartz {quartz-version}.
 
 Project Home: https://github.com/quartz-scheduler/quartz/
 
-=== Downloads
+== Downloads
 
 Get Quartz from link:downloads.adoc[Downloads]
 
-=== Release and General Information
+== Release and General Information
 
 * link:../changelog.adoc[Change Log]
 * link:../license.adoc[License (Apache 2.0)]
 * https://documentation.softwareag.com/legal/[Legal Notices]
 * https://confluence.terracotta.org/display/release/Home[Terracotta Platform and Release Compatibility Tables]
 
-=== User's Guide
+== User's Guide
 
 * link:introduction.adoc[Introduction]
 * link:quick-start-guide.adoc[Quartz Quick Start Guide]
@@ -31,14 +31,14 @@ Get Quartz from link:downloads.adoc[Downloads]
 * link:best-practices.adoc[Best Practices]
 * link:migration-guide.adoc[Migration Guide]
 
-=== Quartz Developer's Guide
+== Quartz Developer's Guide
 
 * link:community.adoc[Community & Dev Team]
 * link:contribute.adoc[Contribution Guide]
 * link:build.adoc[Build Instructions]
 * https://github.com/quartz-scheduler/quartz/wiki[WIKI]
 
-=== More Help?
+== More Help?
 
 If you don't find what you’re looking for in the docs, post a question to the Quartz support forums.
 
