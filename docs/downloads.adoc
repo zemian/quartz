@@ -44,6 +44,6 @@ You can download the full distribution (with examples, source, dependencies, doc
 
 http://www.quartz-scheduler.org/downloads/quartz-{quartz-version}-distribution.tar.gz[quartz-{quartz-version}-distribution.tar.gz]
 
-=== Previous releases
+== Previous releases
 
-See http://www.quartz-scheduler.org/old-releases/[Quartz Old Releases Archive]
+See http://www.quartz-scheduler.org/downloads/#previous-releases[Quartz Old Releases Archive]
