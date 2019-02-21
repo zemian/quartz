@@ -1,6 +1,6 @@
 = Download Quartz
 :toc:
-:quartz-version: latest
+:quartz-version: latest-x.y.z
 
 == Using Maven as Dependency
 
