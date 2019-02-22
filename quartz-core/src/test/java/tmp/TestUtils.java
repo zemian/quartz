@@ -20,6 +20,7 @@ import org.quartz.SchedulerListener;
 import org.quartz.Trigger;
 import org.quartz.TriggerKey;
 import org.quartz.TriggerListener;
+import org.quartz.integrations.tests.QuartzMemoryTestSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +28,29 @@ import org.slf4j.LoggerFactory;
  * JobUtils
  */
 public class TestUtils {
+  public static class PostgresTestSupport extends QuartzMemoryTestSupport {
+    protected Logger log = LoggerFactory.getLogger(getClass());
+
+    @Override
+    protected Properties createSchedulerProperties() {
+      Properties props = TestUtils.postgresProps();
+      return props;
+    }
+
+    @Override
+    protected void afterSchedulerInit() throws Exception {
+      log.info("Clear all scheduler data");
+      scheduler.clear();
+
+      beforeSchedulerStart();
+
+      log.info("Start scheduler");
+      scheduler.start();
+    }
+
+    protected void beforeSchedulerStart() throws Exception {
+    }
+  }
 
   public static Properties createSchedulerPropertiesFromFile() {
     Properties props = new Properties();
@@ -51,7 +75,6 @@ public class TestUtils {
     props.put("org.quartz.jobStore.misfireThreshold", "10000");
     props.put("org.quartz.jobStore.class", "org.quartz.impl.jdbcjobstore.JobStoreTX");
     props.put("org.quartz.jobStore.driverDelegateClass", "org.quartz.impl.jdbcjobstore.PostgreSQLDelegate");
-    props.put("org.quartz.jobStore.useProperties", "true");
     props.put("org.quartz.jobStore.dataSource", "myDS");
     props.put("org.quartz.jobStore.tablePrefix", "QRTZ_");
     props.put("org.quartz.jobStore.isClustered", "false");
@@ -64,29 +87,29 @@ public class TestUtils {
   }
 
 
-  public static void executeSampleJob(Logger LOG, JobExecutionContext context)
+  public static void executeSampleJob(Logger log, JobExecutionContext context)
       throws JobExecutionException {
     try {
       JobDetail job = context.getJobDetail();
       Trigger trigger = context.getTrigger();
       JobDataMap jobMergedData = context.getMergedJobDataMap();
       JobKey jobKey = job.getKey();
-      LOG.info("Job {} with trigger {} is running.", jobKey, trigger.getKey());
-      LOG.info("jobMergedData={}", new HashMap(jobMergedData));
-      LOG.debug("Job data={} ", job.getJobDataMap());
-      LOG.debug("Trigger data={} ", trigger.getJobDataMap());
+      log.info("Job {} with trigger {} is running.", jobKey, trigger.getKey());
+      log.info("jobMergedData={}", new HashMap(jobMergedData));
+      log.debug("Job data={} ", job.getJobDataMap());
+      log.debug("Trigger data={} ", trigger.getJobDataMap());
 
       // Sync job
       CyclicBarrier barrier = (CyclicBarrier) context.getScheduler().getContext().get("barrier");
       if (barrier != null) {
-        LOG.info("Testing barrier wait of 20 secs wait max");
+        log.info("Testing barrier wait of 20 secs wait max");
         barrier.await(20, TimeUnit.SECONDS);
       }
 
       // Pause job
       if (jobMergedData.containsKey("pauseTime")) {
         Long pauseTime = context.getMergedJobDataMap().getLongValueFromString("pauseTime");
-        LOG.info("Pausing job on purpose: {} ms", pauseTime);
+        log.info("Pausing job on purpose: {} ms", pauseTime);
         Thread.sleep(pauseTime);
       }
 
@@ -104,7 +127,6 @@ public class TestUtils {
    * MyJob
    */
   public static class MyJob implements Job {
-
     private static Logger LOG = LoggerFactory.getLogger(MyJob.class);
 
     @Override
@@ -128,7 +150,7 @@ public class TestUtils {
 
       JobDataMap jobData = context.getJobDetail().getJobDataMap();
       if (jobData.containsKey("updateCount")) {
-        int from = jobData.getIntFromString("updateCount");
+        int from = jobData.getInt("updateCount");
         int to = from + 1;
         LOG.info("Update job data 'updateCount' from {} to {}", from, to);
         jobData.put("updateCount", to);
@@ -163,7 +185,7 @@ public class TestUtils {
 
   public static class MyTriggerListener implements TriggerListener {
 
-    private static Logger LOG = LoggerFactory.getLogger(MyTriggerListener.class);
+    private static Logger log = LoggerFactory.getLogger(MyTriggerListener.class);
 
     @Override
     public String getName() {
@@ -172,129 +194,129 @@ public class TestUtils {
 
     @Override
     public void triggerFired(Trigger trigger, JobExecutionContext context) {
-      LOG.info("triggerFired: {}, {}", context, trigger);
+      log.info("triggerFired: {}, {}", context, trigger);
     }
 
     @Override
     public boolean vetoJobExecution(Trigger trigger, JobExecutionContext context) {
-      LOG.info("vetoJobExecution: {}, {}", context, trigger);
+      log.info("vetoJobExecution: {}, {}", context, trigger);
       return false;
     }
 
     @Override
     public void triggerMisfired(Trigger trigger) {
-      LOG.info("triggerMisfired: {}", trigger);
+      log.info("triggerMisfired: {}", trigger);
     }
 
     @Override
     public void triggerComplete(Trigger trigger, JobExecutionContext context,
         Trigger.CompletedExecutionInstruction triggerInstructionCode) {
-      LOG.info("vetoJobExecution: {}, {}, {}", context, trigger, triggerInstructionCode);
+      log.info("vetoJobExecution: {}, {}, {}", context, trigger, triggerInstructionCode);
     }
   }
 
   public static class MySchedulerListener implements SchedulerListener {
 
-    private static Logger LOG = LoggerFactory.getLogger(MySchedulerListener.class);
+    private static Logger log = LoggerFactory.getLogger(MySchedulerListener.class);
 
     @Override
     public void jobScheduled(Trigger trigger) {
-      LOG.info("jobScheduled: {}", trigger);
+      log.info("jobScheduled: {}", trigger);
     }
 
     @Override
     public void jobUnscheduled(TriggerKey triggerKey) {
-      LOG.info("jobUnscheduled: {}", triggerKey);
+      log.info("jobUnscheduled: {}", triggerKey);
     }
 
     @Override
     public void triggerFinalized(Trigger trigger) {
-      LOG.info("triggerFinalized: {}", trigger);
+      log.info("triggerFinalized: {}", trigger);
     }
 
     @Override
     public void triggerPaused(TriggerKey triggerKey) {
-      LOG.info("triggerPaused: {}", triggerKey);
+      log.info("triggerPaused: {}", triggerKey);
     }
 
     @Override
     public void triggersPaused(String triggerGroup) {
-      LOG.info("triggersPaused: {}", triggerGroup);
+      log.info("triggersPaused: {}", triggerGroup);
     }
 
     @Override
     public void triggerResumed(TriggerKey triggerKey) {
-      LOG.info("triggerResumed: {}", triggerKey);
+      log.info("triggerResumed: {}", triggerKey);
     }
 
     @Override
     public void triggersResumed(String triggerGroup) {
-      LOG.info("triggersResumed: {}", triggerGroup);
+      log.info("triggersResumed: {}", triggerGroup);
     }
 
     @Override
     public void jobAdded(JobDetail jobDetail) {
-      LOG.info("jobAdded: {}", jobDetail);
+      log.info("jobAdded: {}", jobDetail);
     }
 
     @Override
     public void jobDeleted(JobKey jobKey) {
-      LOG.info("jobDeleted: {}", jobKey);
+      log.info("jobDeleted: {}", jobKey);
     }
 
     @Override
     public void jobPaused(JobKey jobKey) {
-      LOG.info("jobPaused: {}", jobKey);
+      log.info("jobPaused: {}", jobKey);
     }
 
     @Override
     public void jobsPaused(String jobGroup) {
-      LOG.info("jobsPaused: {}", jobGroup);
+      log.info("jobsPaused: {}", jobGroup);
     }
 
     @Override
     public void jobResumed(JobKey jobKey) {
-      LOG.info("jobResumed: {}", jobKey);
+      log.info("jobResumed: {}", jobKey);
     }
 
     @Override
     public void jobsResumed(String jobGroup) {
-      LOG.info("jobsResumed: {}", jobGroup);
+      log.info("jobsResumed: {}", jobGroup);
     }
 
     @Override
     public void schedulerError(String msg, SchedulerException cause) {
-      LOG.info("schedulerError: {}, {}", msg, cause);
+      log.info("schedulerError: {}, {}", msg, cause);
     }
 
     @Override
     public void schedulerInStandbyMode() {
-      LOG.info("schedulerInStandbyMode");
+      log.info("schedulerInStandbyMode");
     }
 
     @Override
     public void schedulerStarted() {
-      LOG.info("schedulerStarted");
+      log.info("schedulerStarted");
     }
 
     @Override
     public void schedulerStarting() {
-      LOG.info("schedulerStarting");
+      log.info("schedulerStarting");
     }
 
     @Override
     public void schedulerShutdown() {
-      LOG.info("schedulerShutdown");
+      log.info("schedulerShutdown");
     }
 
     @Override
     public void schedulerShuttingdown() {
-      LOG.info("schedulerShuttingdown");
+      log.info("schedulerShuttingdown");
     }
 
     @Override
     public void schedulingDataCleared() {
-      LOG.info("schedulingDataCleared");
+      log.info("schedulingDataCleared");
     }
   }
 }

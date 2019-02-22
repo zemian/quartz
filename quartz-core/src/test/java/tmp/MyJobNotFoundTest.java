@@ -14,34 +14,34 @@ import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
-import org.quartz.integrations.tests.QuartzMemoryTestSupport;
 import org.quartz.simpl.CascadingClassLoadHelper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-public class MyJobNotFoundTest extends QuartzMemoryTestSupport {
+public class MyJobNotFoundTest extends TestUtils.PostgresTestSupport {
 
-  private static Logger LOG = LoggerFactory.getLogger(MyJobNotFoundTest.class);
+  public static class MyJobNotFoundClassLoadHelper extends CascadingClassLoadHelper {
+    @Override
+    public Class<?> loadClass(String name) throws ClassNotFoundException {
+      if (TestUtils.MyJob.class.getName().equals(name)) {
+        throw new ClassNotFoundException();
+      } else {
+        return super.loadClass(name);
+      }
+    }
+  }
 
   @Override
   protected Properties createSchedulerProperties() {
-    Properties props = TestUtils.postgresProps();
+    Properties props = super.createSchedulerProperties();
     props.put(PROP_SCHED_CLASS_LOAD_HELPER_CLASS, MyJobNotFoundClassLoadHelper.class.getName());
     return props;
   }
 
   @Override
-  protected void afterSchedulerInit() throws Exception {
-    LOG.info("Clear all scheduler data");
-    scheduler.clear();
-
+  protected void beforeSchedulerStart() throws Exception {
     // Setup Listeners
     scheduler.getListenerManager().addJobListener(new TestUtils.MyJobListener());
     scheduler.getListenerManager().addTriggerListener(new TestUtils.MyTriggerListener());
     scheduler.getListenerManager().addSchedulerListener(new TestUtils.MySchedulerListener());
-
-    LOG.info("Start scheduler");
-    scheduler.start();
   }
 
   @Test
@@ -49,10 +49,10 @@ public class MyJobNotFoundTest extends QuartzMemoryTestSupport {
     CyclicBarrier barrier = new CyclicBarrier(2);
     scheduler.getContext().put("barrier", barrier);
 
-    JobDetail job1 = JobBuilder.newJob(TestUtils.MyJob.class).withIdentity("bad").
-        //usingJobData("pauseTime", "30000").
-        //usingJobData("createError", "Just a test").
-            build();
+    JobDetail job1 = JobBuilder.newJob(TestUtils.MyJob.class).withIdentity("bad")
+        //.usingJobData("pauseTime", "30000").
+        //.usingJobData("createError", "Just a test").
+        .build();
     JobDetail job2 = JobBuilder.newJob(TestUtils.DisallowConcJob.class).withIdentity("good")
         .build();
 
@@ -71,18 +71,6 @@ public class MyJobNotFoundTest extends QuartzMemoryTestSupport {
 
     //barrier.await(20, TimeUnit.SECONDS);
     Thread.sleep(30_000L);
-    LOG.info("Testing is done.");
-  }
-
-  public static class MyJobNotFoundClassLoadHelper extends CascadingClassLoadHelper {
-
-    @Override
-    public Class<?> loadClass(String name) throws ClassNotFoundException {
-      if (TestUtils.MyJob.class.getName().equals(name)) {
-        throw new ClassNotFoundException();
-      } else {
-        return super.loadClass(name);
-      }
-    }
+    log.info("Testing is done.");
   }
 }

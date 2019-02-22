@@ -4,48 +4,29 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Set;
 import org.junit.Test;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
-import org.quartz.integrations.tests.QuartzMemoryTestSupport;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-public class LongPauseJobTest extends QuartzMemoryTestSupport {
-
-  private static Logger LOG = LoggerFactory.getLogger(LongPauseJobTest.class);
+public class LongPauseJobTest extends TestUtils.PostgresTestSupport {
   private TestUtils.MySchedulerListener myListener = new TestUtils.MySchedulerListener();
 
-  @Override
-  protected Properties createSchedulerProperties() {
-    Properties props = TestUtils.postgresProps();
-    return props;
-  }
-
-  @Override
-  protected void afterSchedulerInit() throws Exception {
-    LOG.info("Clear all scheduler data");
-    scheduler.clear();
-
+  protected void beforeSchedulerStart() throws Exception {
     // Setup Listeners
     scheduler.getListenerManager().addJobListener(new TestUtils.MyJobListener());
     scheduler.getListenerManager().addTriggerListener(new TestUtils.MyTriggerListener());
     scheduler.getListenerManager().addSchedulerListener(new TestUtils.MySchedulerListener());
-
-    LOG.info("Start scheduler");
-    scheduler.start();
   }
 
   @Test
   public void testPostgres() throws Exception {
-    JobDetail job1 = JobBuilder.newJob(TestUtils.MyJob.class).withIdentity("job1").
-        usingJobData("pauseTime", "30000").
-        usingJobData("createError", "Just a test").
-        build();
+    JobDetail job1 = JobBuilder.newJob(TestUtils.MyJob.class).withIdentity("job1")
+        .usingJobData("pauseTime", "30000")
+        .usingJobData("createError", "Just a test")
+        .build();
     JobDetail job2 = JobBuilder.newJob(TestUtils.DisallowConcJob.class).withIdentity("job2")
         .build();
 
@@ -63,6 +44,6 @@ public class LongPauseJobTest extends QuartzMemoryTestSupport {
     scheduler.scheduleJobs(toSchedule, true);
 
     Thread.sleep(60_000L);
-    LOG.info("Testing is done.");
+    log.info("Testing is done.");
   }
 }

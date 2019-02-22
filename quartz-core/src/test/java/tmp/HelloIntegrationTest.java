@@ -13,7 +13,7 @@ import org.quartz.TriggerBuilder;
 import org.quartz.integrations.tests.HelloJob;
 import org.quartz.integrations.tests.QuartzDatabaseTestSupport;
 
-public class HelloIntegrationTest extends QuartzDatabaseTestSupport {
+public class HelloIntegrationTest extends TestUtils.PostgresTestSupport {
   @Test
   public void testHello() throws Exception {
     JobDetail job1 = JobBuilder.newJob(HelloJob.class).withIdentity("job1").build();
@@ -41,6 +41,6 @@ public class HelloIntegrationTest extends QuartzDatabaseTestSupport {
     //scheduler.resumeTrigger(tr.getKey());
 
     Thread.sleep(17_000L);
-    LOG.info("Testing is done.");
+    log.info("Testing is done.");
   }
 }
