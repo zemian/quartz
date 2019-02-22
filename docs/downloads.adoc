@@ -1,7 +1,6 @@
 = Download Quartz
 :toc:
-:quartz-version: 2.4.0
-:quartz-latest-download-link: https://github.com/quartz-scheduler/downloads/quartz-2.4.0-distribution.tar.gz
+:quartz-version: latest-x.y.z
 
 == Using Maven as Dependency
 
@@ -43,13 +42,8 @@ Additional, you may include these optional dependencies if you choose use them
 
 You can download the full distribution (with examples, source, dependencies, doc, etc.).
 
-{quartz-latest-download-link}[Quartz {quartz-version} .tar.gz]
+http://www.quartz-scheduler.org/downloads/quartz-{quartz-version}-distribution.tar.gz[quartz-{quartz-version}-distribution.tar.gz]
 
-=== Previous releases
+== Previous releases
 
-Full Distributions
-
-* http://d2zwv9pap9ylyd.cloudfront.net/quartz-2.2.3-distribution.tar.gz[Quartz 2.2.3 .tar.gz]
-* http://d2zwv9pap9ylyd.cloudfront.net/quartz-2.1.7-distribution.tar.gz[Quartz 2.1.7 .tar.gz]
-* http://d2zwv9pap9ylyd.cloudfront.net/quartz-2.0.2-distribution.tar.gz[Quartz 2.0.2 .tar.gz]
-* http://d2zwv9pap9ylyd.cloudfront.net/quartz-1.8.6-distribution.tar.gz[Quartz 1.8.6 .tar.gz]
+See http://www.quartz-scheduler.org/downloads/#previous-releases[Quartz Old Releases Archive]

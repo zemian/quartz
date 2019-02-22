@@ -1,49 +1,46 @@
 = Quartz Documentation
 :toc:
-:quartz-version: 2.4.0
-:quartz-javadoc-link: http://www.quartz-scheduler.org/api/2.4.x/index.html
+:quartz-version: latest-x.y.z
 
 This documentation is for Quartz {quartz-version}.
 
 Project Home: https://github.com/quartz-scheduler/quartz/
 
-=== Downloads
+== Downloads
 
-Get Quartz from link:downloads.adoc[Downloads]
+Get Quartz from <<downloads.adoc#,Downloads>>
 
-=== Release and General Information
+== Release and General Information
 
-* link:../changelog.adoc[Change Log]
-* link:../license.adoc[License (Apache 2.0)]
-* https://documentation.softwareag.com/legal/[Legal Notices]
-* https://confluence.terracotta.org/display/release/Home[Terracotta Platform and Release Compatibility Tables]
+* <<changelog.adoc#,Change Log>>
+* <<license.adoc#,License (Apache 2.0)>>
+* https://documentation.softwareag.com/legal/[Legal Notices, role="external", window="_blank"]
+* https://confluence.terracotta.org/display/release/Home[Terracotta Platform and Release Compatibility Tables, role="external", window="_blank"]
 
-=== User's Guide
+== User's Guide
 
-* link:introduction.adoc[Introduction]
-* link:quick-start-guide.adoc[Quartz Quick Start Guide]
-* link:configuration-ref.adoc[Configuration Reference]
-* {quartz-javadoc-link}[JavaDoc]
-* link:tutorials/index.md[Tutorial]
-* link:examples/index.md[Examples]
-* link:cookbook/index.md[Cookbook]
-* link:faq.adoc[FAQ]
-* link:best-practices.adoc[Best Practices]
-* link:migration-guide.adoc[Migration Guide]
+* <<introduction.adoc#,Introduction>>
+* <<quick-start-guide.adoc#,Quartz Quick Start Guide>>
+* <<configuration-ref.adoc#,Configuration Reference>>
+* http://www.quartz-scheduler.org/api/{quartz-version}/[JavaDoc, role="external", window="_blank"]
+* <<tutorials/index.adoc#,Tutorial>>
+* <<examples/index.adoc#,Examples>>
+* <<cookbook/index.adoc#,Cookbook>>
+* <<faq.adoc#,FAQ>>
+* <<best-practices.adoc#,Best Practices>>
+* <<migration-guide.adoc#,Migration Guide>>
 
-=== Quartz Developer's Guide
+== Quartz Developer's Guide
 
-* link:community.adoc[Community & Dev Team]
-* link:contribute.adoc[Contribution Guide]
-* link:build.adoc[Build Instructions]
-* https://github.com/quartz-scheduler/quartz/wiki[WIKI]
+* <<community.adoc#,Community & Dev Team>>
+* <<contribute.adoc#,Contribution Guide>>
+* <<build.adoc#,Build Instructions>>
+* https://github.com/quartz-scheduler/quartz/wiki[WIKI, role="external", window="_blank"]
 
-=== More Help?
+== More Help?
 
 If you don't find what you’re looking for in the docs, post a question to the Quartz support forums.
 
-* Quartz User Support Forum
-https://groups.google.com/forum/#!categories/quartz-scheduler
+* https://groups.google.com/forum/#!categories/quartz-scheduler[Quartz User Support Forum, role="external", window="_blank"]
+* https://groups.google.com/forum/#!forum/quartz-scheduler-dev[Quartz Development Forum, role="external", window="_blank"]
 
-* Quartz Development Forum
-https://groups.google.com/forum/#!forum/quartz-scheduler-dev
