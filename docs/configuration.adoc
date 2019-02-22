@@ -1106,9 +1106,9 @@ If you're using JDBC-Jobstore, you'll be needing a DataSource for its use (or tw
 
 DataSources can be configured in three ways:
 
-1. All pool properties specified in the quartz.properties file, so that Quartz can create the DataSource itself.
-1. The JNDI location of an application server managed Datasource can be specified, so that Quartz can use it.
-1. Custom defined *org.quartz.utils.ConnectionProvider* implementations.
+. All pool properties specified in the quartz.properties file, so that Quartz can create the DataSource itself.
+. The JNDI location of an application server managed Datasource can be specified, so that Quartz can use it.
+. Custom defined *org.quartz.utils.ConnectionProvider* implementations.
 
 
 It is recommended that your Datasource max connection size be configured to be at least the number of worker threads in the thread pool plus three.
