@@ -94,22 +94,22 @@ public class TestUtils {
       Trigger trigger = context.getTrigger();
       JobDataMap jobMergedData = context.getMergedJobDataMap();
       JobKey jobKey = job.getKey();
-      log.info("Job {} with trigger {} is running.", jobKey, trigger.getKey());
-      log.info("jobMergedData={}", new HashMap(jobMergedData));
-      log.debug("Job data={} ", job.getJobDataMap());
-      log.debug("Trigger data={} ", trigger.getJobDataMap());
+      log.info("{} trigger {} is running.", jobKey, trigger.getKey());
+      log.info("{} jobMergedData={}", jobKey, new HashMap(jobMergedData));
+      log.debug("{} jobData={} ", jobKey, job.getJobDataMap());
+      log.debug("{} triggerData={} ", jobKey, trigger.getJobDataMap());
 
       // Sync job
       CyclicBarrier barrier = (CyclicBarrier) context.getScheduler().getContext().get("barrier");
       if (barrier != null) {
-        log.info("Testing barrier wait of 20 secs wait max");
+        log.info("{} Testing barrier wait of 20 secs wait max", jobKey);
         barrier.await(20, TimeUnit.SECONDS);
       }
 
       // Pause job
       if (jobMergedData.containsKey("pauseTime")) {
         Long pauseTime = context.getMergedJobDataMap().getLongValueFromString("pauseTime");
-        log.info("Pausing job on purpose: {} ms", pauseTime);
+        log.info("{} Pausing job on purpose: {} ms", jobKey, pauseTime);
         Thread.sleep(pauseTime);
       }
 
@@ -147,12 +147,12 @@ public class TestUtils {
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
       executeSampleJob(LOG, context);
-
+      JobKey jobKey = context.getJobDetail().getKey();
       JobDataMap jobData = context.getJobDetail().getJobDataMap();
       if (jobData.containsKey("updateCount")) {
         int from = jobData.getInt("updateCount");
         int to = from + 1;
-        LOG.info("Update job data 'updateCount' from {} to {}", from, to);
+        LOG.info("{} Update job data 'updateCount' from {} to {}", jobKey, from, to);
         jobData.put("updateCount", to);
       }
     }

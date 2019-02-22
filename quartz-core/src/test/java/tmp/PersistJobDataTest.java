@@ -17,8 +17,11 @@ public class PersistJobDataTest extends TestUtils.PostgresTestSupport {
         .build();
 
     HashSet<Trigger> triggers = new HashSet<>();
-    triggers.add(TriggerBuilder.newTrigger().forJob(job1)
+    triggers.add(TriggerBuilder.newTrigger().forJob(job1).withIdentity("trigger1")
         .withSchedule(CronScheduleBuilder.cronSchedule("0/3 * * * * ?"))
+        .build());
+    triggers.add(TriggerBuilder.newTrigger().forJob(job1).withIdentity("trigger2")
+        .withSchedule(CronScheduleBuilder.cronSchedule("* * * * * ?"))
         .build());
 
     scheduler.scheduleJob(job1, triggers, true);
