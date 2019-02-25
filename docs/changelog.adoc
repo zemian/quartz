@@ -20,6 +20,7 @@ This release is still work in progress under `quartz-2.3.x` branch!
 THIS RELEASE REQUIRES JDK7
 
 * #294 depen: Update hikaricp-java6:2.3.13 to hikaricp-java7:2.4.13
+* #316 depen: Updated C3P0 version to 0.9.5.3
 * #147 bugfix: Fix BINARY to BLOG type for job data for hsqldb
 * #156 bugfix: Fix null string used in thread name with DirectSchedulerFactory
 * #159 bugfix: Fix extra bad char tick on drop table qurtz_fired_triggers for postgres
