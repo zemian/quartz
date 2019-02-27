@@ -1,7 +1,11 @@
-
+---
+title: Examples
+visible_title: "Quartz Examples"
+active_sub_menu_id: site_mnu_docs_examples
+---
 <div class="secNavPanel">
-          <a href="index.md">Contents</a> |
-          <a href="Example3.md">Next&nbsp;&rsaquo;</a>
+          <a href=".">Contents</a> |
+          <a href="Example3.html">Next&nbsp;&rsaquo;</a>
 </div>
 
 ## [Example 1 - Your First Quartz Program](#Example1-Overview)

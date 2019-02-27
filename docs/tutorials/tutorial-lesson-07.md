@@ -1,8 +1,12 @@
-
+---
+title: Tutorial 7
+visible_title: "Quartz Tutorials"
+active_sub_menu_id: site_mnu_docs_tutorials
+---
 <div class="secNavPanel">
-          <a href="./index.md" title="Go to Tutorial Table of Contents">Table of Contents</a> |
-          <a href="./tutorial-lesson-06.md">&lsaquo;&nbsp;Lesson 6</a> |
-          <a href="./tutorial-lesson-08.md">Lesson 8&nbsp;&rsaquo;</a>
+          <a href="./" title="Go to Tutorial Table of Contents">Table of Contents</a> |
+          <a href="tutorial-lesson-06.html" title="Go to Lesson 6">&lsaquo;&nbsp;Lesson 6</a> |
+          <a href="tutorial-lesson-08.html" title="Go to Lesson 8">Lesson 8&nbsp;&rsaquo;</a>
 </div>
 
 ## Lesson 7: TriggerListeners and JobListeners
