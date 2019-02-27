@@ -1,8 +1,12 @@
-
+---
+title: Tutorial 3
+visible_title: "Quartz Tutorials"
+active_sub_menu_id: site_mnu_docs_tutorials
+---
 <div class="secNavPanel">
-          <a href="./index.md" title="Go to Tutorial Table of Contents">Table of Contents</a> |
-          <a href="./tutorial-lesson-02.md">&lsaquo;&nbsp;Lesson 2</a> |
-          <a href="./tutorial-lesson-04.md">Lesson 4&nbsp;&rsaquo;</a>
+          <a href="./" title="Go to Tutorial Table of Contents">Table of Contents</a> |
+          <a href="/documentation/quartz-2.2.x/tutorials/tutorial-lesson-02.html" title="Go to Lesson 2">&lsaquo;&nbsp;Lesson 2</a> |
+          <a href="/documentation/quartz-2.2.x/tutorials/tutorial-lesson-04.html" title="Go to Lesson 4">Lesson 4&nbsp;&rsaquo;</a>
 </div>
 
 ## Lesson 3: More About Jobs and Job Details
