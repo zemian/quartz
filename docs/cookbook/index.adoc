@@ -1,4 +1,7 @@
 = Quartz Job Scheduler Cookbook
+:title: Cookbook
+:visible_title: "Quartz Cookbook"
+:active_sub_menu_id: site_mnu_docs_cookbook
 
 The Quartz cookbook is a collection of succinct code examples of doing specific things with Quartz.
 
