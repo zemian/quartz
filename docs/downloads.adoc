@@ -2,6 +2,10 @@
 :toc:
 :quartz-version: latest-x.y.z
 
+== Manual Downloads
+
+You may download our standalone distribution packages from http://www.quartz-scheduler.org/downloads
+
 == Using Maven as Dependency
 
 If you are a Maven user you can add the dependencies to your existing project.
@@ -36,14 +40,3 @@ Additional, you may include these optional dependencies if you choose use them
     <version>42.2.5</version>
 </dependency>
 ----
-
-
-== Manual Downloads
-
-You can download the full distribution (with examples, source, dependencies, doc, etc.).
-
-http://www.quartz-scheduler.org/downloads/quartz-{quartz-version}-distribution.tar.gz[quartz-{quartz-version}-distribution.tar.gz]
-
-== Previous releases
-
-See http://www.quartz-scheduler.org/downloads/#previous-releases[Quartz Old Releases Archive]
