@@ -1,6 +1,6 @@
 = Download Quartz
 :toc:
-:quartz-version: latest-x.y.z
+:quartz-version-23x: latest-2.3.x
 
 == Manual Downloads
 
@@ -18,7 +18,7 @@ Add the following into your project `pom.xml` file under `<dependencies>` elemen
 <dependency>
   <groupId>org.quartz-scheduler</groupId>
   <artifactId>quartz</artifactId>
-  <version>{quartz-version}</version>
+  <version>{quartz-version-23x}</version>
 </dependency>
 ----
 
