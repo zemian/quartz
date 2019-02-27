@@ -1,8 +1,8 @@
 = Quartz Documentation
 :toc:
-:quartz-version: latest-x.y.z
+:quartz-version-23x: latest-2.3.x
 
-This documentation is for Quartz {quartz-version}.
+This documentation is for Quartz {quartz-version-23x}.
 
 Project Home: https://github.com/quartz-scheduler/quartz/
 
