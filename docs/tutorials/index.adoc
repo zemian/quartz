@@ -1,4 +1,7 @@
 = Quartz Job Scheduler Tutorials
+:title: Tutorials
+:visible_title: "Quartz Tutorials"
+:active_sub_menu_id: site_mnu_docs_tutorials
 
 Before starting the tutorial, you may first want to review the <<../quick-start-guide.adoc#,Quick Start Guide>>, which covers download, installation, and very basic configuration of Quartz.
 

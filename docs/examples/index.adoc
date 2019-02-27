@@ -1,4 +1,8 @@
 = Examples Overview
+:title: Examples
+:visible_title: "Quartz Examples"
+:active_sub_menu_id: site_mnu_docs_examples
+
 
 Welcome to the documentation for the Quartz Example programs. Quartz ships with 13 out-of-the-box examples that demonstrate the various features of Quartz and the Quartz API.
 

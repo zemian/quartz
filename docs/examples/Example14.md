@@ -1,7 +1,11 @@
-
+---
+title: Examples
+visible_title: "Quartz Examples"
+active_sub_menu_id: site_mnu_docs_examples
+---
 <div class="secNavPanel">
-          <a href="index.md">Contents</a> |
-	  <a href="Example6.md">&lsaquo;&nbsp;Prev</a>
+          <a href=".">Contents</a> |
+	  <a href="Example6.html">&lsaquo;&nbsp;Prev</a>
 </div>
 
 ## Example 14 - Trigger Priorities
