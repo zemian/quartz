@@ -7,7 +7,7 @@ Quartz has been around for more than 15 years. As such, there is a large communi
 
 === Find and Give Help
 
-* https://groups.google.com/forum/=!forum/quartz-scheduler[Quartz Users' Forum / Mail List] (via Google Groups)
+* https://groups.google.com/forum/#!categories/quartz-scheduler[Quartz User Support Forum, role="external", window="_blank"] (via Google Groups)
 
 === Report Issues, Request Features, Get Code
 
@@ -16,8 +16,8 @@ Quartz has been around for more than 15 years. As such, there is a large communi
 
 === Participate in the Development of Quartz
 
-* link:./contribute.adoc[How to Contribute]
-* https://groups.google.com/forum/=!forum/quartz-scheduler-dev[Quartz developers' Forum / Mail List] (via Google Groups)
+* <<contribute.adoc#,How to Contribute>>
+* https://groups.google.com/forum/#!forum/quartz-scheduler-dev[Quartz Development Forum, role="external", window="_blank"] (via Google Groups)
 
 
 == Join the Team

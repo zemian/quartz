@@ -1,5 +1,9 @@
-
-<div class="secNavPanel"><a href=".">Contents</a> | <a href="JobTriggers.md">&lsaquo;&nbsp;Prev</a> | <a href="TriggerListeners.md">Next&nbsp;&rsaquo;</a></div>
+---
+title: Cookbook
+visible_title: "Quartz Cookbook"
+active_sub_menu_id: site_mnu_docs_cookbook
+---
+<div class="secNavPanel"><a href=".">Contents</a> | <a href="JobTriggers.html">&lsaquo;&nbsp;Prev</a> | <a href="TriggerListeners.html">Next&nbsp;&rsaquo;</a></div>
 
 
 
