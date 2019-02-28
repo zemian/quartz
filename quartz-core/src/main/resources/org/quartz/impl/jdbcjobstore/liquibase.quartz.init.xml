@@ -10,7 +10,7 @@
     <property name="blob_type" value="BYTEA" dbms="postgresql"/>
     <property name="blob_type" value="BLOB"/>
 
-    <changeSet id="quartz-init" author="nasazh">
+    <changeSet id="quartz-init" author="quartz">
 
         <createTable tableName="${table_prefix}LOCKS">
             <column name="SCHED_NAME" type="VARCHAR(120)">
