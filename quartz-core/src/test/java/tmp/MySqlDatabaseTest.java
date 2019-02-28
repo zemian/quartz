@@ -8,7 +8,7 @@ import org.quartz.SimpleScheduleBuilder;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 
-public class PostgresDatabaseTest extends TestUtils.PostgresTestSupport {
+public class MySqlDatabaseTest extends TestUtils.MySQLTestSupport {
   @Test
   public void testHello() throws Exception {
     JobDetail job1 = JobBuilder.newJob(TestUtils.MyJob.class).withIdentity("job1")

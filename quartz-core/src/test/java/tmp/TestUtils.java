@@ -33,7 +33,7 @@ public class TestUtils {
 
     @Override
     protected Properties createSchedulerProperties() {
-      Properties props = TestUtils.postgresProps();
+      Properties props = postgresProps();
       return props;
     }
 
@@ -52,40 +52,73 @@ public class TestUtils {
     }
   }
 
-  public static Properties createSchedulerPropertiesFromFile() {
-    Properties props = new Properties();
-    File file = new File(
-        "C:\\Users\\zde\\src\\zemian\\quartz-starter\\src\\main\\resources\\zemian\\quartzstarter\\postgres.properties");
-    try (FileInputStream ins = new FileInputStream(file)) {
-      props.load(ins);
-    } catch (Exception e) {
-      throw new RuntimeException("Failed to read props " + file);
+  public static class MySQLTestSupport extends QuartzMemoryTestSupport {
+    protected Logger log = LoggerFactory.getLogger(getClass());
+
+    @Override
+    protected Properties createSchedulerProperties() {
+      Properties props = mysqlProps();
+      return props;
     }
-    return props;
+
+    @Override
+    protected void afterSchedulerInit() throws Exception {
+      log.info("Clear all scheduler data");
+      scheduler.clear();
+
+      beforeSchedulerStart();
+
+      log.info("Start scheduler");
+      scheduler.start();
+    }
+
+    protected void beforeSchedulerStart() throws Exception {
+    }
   }
 
   public static Properties postgresProps() {
     Properties props = new Properties();
-    props.put("org.quartz.scheduler.instanceName", "PostgresTmpTestScheduler");
+    props.put("org.quartz.scheduler.instanceName", "PostgresTestScheduler");
     props.put("org.quartz.scheduler.instanceId", "AUTO");
     props.put("org.quartz.scheduler.skipUpdateCheck", "true");
     props.put("org.quartz.threadPool.class", "org.quartz.simpl.SimpleThreadPool");
-    props.put("org.quartz.threadPool.threadCount", "12");
+    props.put("org.quartz.threadPool.threadCount", "4");
     props.put("org.quartz.threadPool.threadPriority", "5");
     props.put("org.quartz.jobStore.misfireThreshold", "10000");
     props.put("org.quartz.jobStore.class", "org.quartz.impl.jdbcjobstore.JobStoreTX");
     props.put("org.quartz.jobStore.driverDelegateClass", "org.quartz.impl.jdbcjobstore.PostgreSQLDelegate");
-    props.put("org.quartz.jobStore.dataSource", "myDS");
+    props.put("org.quartz.jobStore.dataSource", "quartzDS");
     props.put("org.quartz.jobStore.tablePrefix", "QRTZ_");
     props.put("org.quartz.jobStore.isClustered", "false");
-    props.put("org.quartz.dataSource.myDS.driver", "org.postgresql.Driver");
-    props.put("org.quartz.dataSource.myDS.URL", "jdbc:postgresql://localhost:5432/quartz");
-    props.put("org.quartz.dataSource.myDS.user", "quartz");
-    props.put("org.quartz.dataSource.myDS.password", "quartz123");
-    props.put("org.quartz.dataSource.myDS.maxConnections", "5");
+    props.put("org.quartz.dataSource.quartzDS.driver", "org.postgresql.Driver");
+    props.put("org.quartz.dataSource.quartzDS.URL", "jdbc:postgresql://localhost:5432/quartz");
+    props.put("org.quartz.dataSource.quartzDS.user", "quartz");
+    props.put("org.quartz.dataSource.quartzDS.password", "quartz123");
+    props.put("org.quartz.dataSource.quartzDS.maxConnections", "6");
     return props;
   }
 
+  public static Properties mysqlProps() {
+    Properties props = new Properties();
+    props.put("org.quartz.scheduler.instanceName", "MySQLTestScheduler");
+    props.put("org.quartz.scheduler.instanceId", "AUTO");
+    props.put("org.quartz.scheduler.skipUpdateCheck", "true");
+    props.put("org.quartz.threadPool.class", "org.quartz.simpl.SimpleThreadPool");
+    props.put("org.quartz.threadPool.threadCount", "4");
+    props.put("org.quartz.threadPool.threadPriority", "5");
+    props.put("org.quartz.jobStore.misfireThreshold", "10000");
+    props.put("org.quartz.jobStore.class", "org.quartz.impl.jdbcjobstore.JobStoreTX");
+    props.put("org.quartz.jobStore.driverDelegateClass", "org.quartz.impl.jdbcjobstore.StdJDBCDelegate");
+    props.put("org.quartz.jobStore.dataSource", "quartzDS");
+    props.put("org.quartz.jobStore.tablePrefix", "QRTZ_");
+    props.put("org.quartz.jobStore.isClustered", "false");
+    props.put("org.quartz.dataSource.quartzDS.driver", "com.mysql.cj.jdbc.Driver");
+    props.put("org.quartz.dataSource.quartzDS.URL", "jdbc:mysql://localhost:3306/quartz?serverTimezone=EST");
+    props.put("org.quartz.dataSource.quartzDS.user", "quartz");
+    props.put("org.quartz.dataSource.quartzDS.password", "quartz123");
+    props.put("org.quartz.dataSource.quartzDS.maxConnections", "6");
+    return props;
+  }
 
   public static void executeSampleJob(Logger log, JobExecutionContext context)
       throws JobExecutionException {
